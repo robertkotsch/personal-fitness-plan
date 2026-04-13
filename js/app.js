@@ -2,7 +2,7 @@
  * app.js — UI rendering, event wiring, and PWA installation.
  *
  * Depends on (loaded before this script):
- *   visuals.js  → V (visual-cue map)
+ *
  *   data.js     → DAYS[] training plan
  */
 
@@ -17,22 +17,79 @@ const contentEl = document.getElementById('content');
 let todayIdx   = Math.min(new Date().getDay() === 0 ? 6 : new Date().getDay() - 1, 6);
 let currentIdx = todayIdx;
 
-// ── Rendering ──────────────────────────────────────────────────────────────
+// ── Weights Storage ────────────────────────────────────────────────────────
 
-function renderTabs() {
-  tabsEl.innerHTML = DAYS.map((d, i) =>
-    `<div class="day-tab ${i === todayIdx ? 'active' : ''} ${d.isRest ? 'rest' : ''}" data-idx="${i}">${d.tab}</div>`
-  ).join('');
+let workoutWeights = JSON.parse(localStorage.getItem('workoutWeights')) || {};
+
+function getSetsCount(rx) {
+  // Matches patterns like "4 × 6", "4x6", "3 rds", "3 rounds", "3 sets"
+  const match = rx.match(/(\d+)\s*([×x]|rds|rounds|sets)\s*/i);
+  return match ? parseInt(match[1], 10) : 1;
 }
 
-/** Returns the HTML for one exercise's visual-cue block (or empty string). */
-function renderVis(key) {
-  const v = V[key];
-  if (!v) return '';
-  const positions = v.p.map(p =>
-    `<div class="visual-pos">${p.s}<div class="pos-label">${p.l}</div></div>`
+window.updateWeight = function(dayId, exIdx, setIdx, value) {
+  const key = `${dayId}_${exIdx}`;
+  if (!workoutWeights[key]) workoutWeights[key] = [];
+  workoutWeights[key][setIdx] = value;
+  localStorage.setItem('workoutWeights', JSON.stringify(workoutWeights));
+};
+
+// ── Rendering ──────────────────────────────────────────────────────────────
+
+const defaultProfile = {
+  age: { label: 'Age', val: 51, unit: '' },
+  weight: { label: 'Weight', val: 91, unit: 'kg' },
+  height: { label: 'Height', val: 1.93, unit: 'm' },
+  vo2max: { label: 'VO2max', val: 50, unit: '' },
+  bench: { label: 'Bench 1RM', val: 107, unit: 'kg' },
+  pullups: { label: 'Pull-ups', val: 12, unit: 'reps' }
+};
+
+let profile = JSON.parse(localStorage.getItem('athleteProfile'));
+if (!profile) {
+  profile = JSON.parse(JSON.stringify(defaultProfile));
+} else {
+  for (let key in defaultProfile) {
+    if (profile[key] === undefined) profile[key] = defaultProfile[key];
+  }
+}
+
+window.editProfile = function(key) {
+  const item = profile[key];
+  const input = prompt(`Enter new value for ${item.label}:`, item.val);
+  if (input !== null && input.trim() !== '') {
+    item.val = isNaN(Number(input)) ? input : Number(input);
+    localStorage.setItem('athleteProfile', JSON.stringify(profile));
+    if (currentIdx === 7) showDay(7);
+  }
+};
+
+function renderProfile() {
+  const cards = Object.keys(profile).map(k => {
+    const p = profile[k];
+    return `<div class="profile-card" onclick="editProfile('${k}')">
+      <div class="profile-val">${p.val}<span class="profile-unit">${p.unit}</span></div>
+      <div class="profile-label">${p.label}</div>
+    </div>`;
+  }).join('');
+
+  return `<div class="day-view active">
+    <div class="day-header">
+      <div class="day-name">Athlete Profile</div>
+      <div class="day-focus">Tap numbers to adjust measurements</div>
+    </div>
+    <div class="profile-grid">
+      ${cards}
+    </div>
+  </div>`;
+}
+
+function renderTabs() {
+  const daysHtml = DAYS.map((d, i) =>
+    `<div class="day-tab ${i === todayIdx ? 'active' : ''} ${d.isRest ? 'rest' : ''}" data-idx="${i}">${d.tab}</div>`
   ).join('');
-  return `<div class="visual-cue"><div class="visual-positions">${positions}</div></div>`;
+  const profileHtml = `<div class="day-tab ${todayIdx === 7 ? 'active' : ''}" data-idx="7">Profile</div>`;
+  tabsEl.innerHTML = daysHtml + profileHtml;
 }
 
 /** Returns the full HTML string for a given day. */
@@ -56,7 +113,26 @@ function renderDay(day) {
     </div>`;
   }
 
-  const exercises = day.exercises.map((ex, i) => `
+  const exercises = day.exercises.map((ex, i) => {
+    const setsCount = getSetsCount(ex.rx);
+    const key = `${day.id}_${i}`;
+    const weights = workoutWeights[key] || [];
+
+    const weightInputs = Array.from({ length: setsCount }, (_, s) => {
+      const val = weights[s] || '';
+      return `
+        <div class="set-input-group">
+          <label>Set ${s + 1}</label>
+          <div class="input-with-unit">
+            <input type="number" step="0.5" placeholder="--" 
+                   value="${val}" 
+                   oninput="updateWeight('${day.id}', ${i}, ${s}, this.value)">
+            <span>kg</span>
+          </div>
+        </div>`;
+    }).join('');
+
+    return `
     <div class="exercise-card" data-exidx="${i}">
       <div class="exercise-header">
         <div class="exercise-num">${i + 1}</div>
@@ -65,13 +141,16 @@ function renderDay(day) {
           <div class="exercise-prescription">${ex.rx}</div>
         </div>
         ${ex.n ? '<div class="tag-new">New</div>' : ''}
-        <svg class="exercise-chevron" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
       </div>
       <div class="exercise-details">
-        ${ex.vi ? renderVis(ex.vi) : ''}
+        <div class="weight-tracker">
+          <div class="detail-label">Weight Records</div>
+          <div class="weight-inputs-scroll">
+            <div class="weight-inputs">
+              ${weightInputs}
+            </div>
+          </div>
+        </div>
         <div class="detail-section">
           <div class="detail-label">Why</div>
           <div class="detail-text">${ex.why}</div>
@@ -86,7 +165,8 @@ function renderDay(day) {
         </div>
         ${ex.yt || ''}
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   const notesHtml = day.notes
     ? `<div class="day-notes"><strong>Note</strong><br>${day.notes}</div>`
@@ -107,16 +187,26 @@ function renderDay(day) {
 
 function showDay(idx) {
   currentIdx = idx;
-  document.querySelectorAll('.day-tab').forEach((t, i) =>
-    t.classList.toggle('active', i === idx)
+  document.querySelectorAll('.day-tab').forEach(t =>
+    t.classList.toggle('active', parseInt(t.dataset.idx, 10) === idx)
   );
-  contentEl.innerHTML = renderDay(DAYS[idx]);
+
+  if (idx === 7) {
+    contentEl.innerHTML = renderProfile();
+  } else {
+    contentEl.innerHTML = renderDay(DAYS[idx]);
+    contentEl.querySelectorAll('.exercise-card').forEach(card => {
+      // Toggle expansion when clicking the header
+      card.querySelector('.exercise-header').addEventListener('click', () =>
+        card.classList.toggle('expanded')
+      );
+      // Prevent expansion when clicking inputs
+      card.querySelectorAll('input').forEach(input => {
+        input.addEventListener('click', e => e.stopPropagation());
+      });
+    });
+  }
   contentEl.scrollTop = 0;
-  contentEl.querySelectorAll('.exercise-card').forEach(card =>
-    card.querySelector('.exercise-header').addEventListener('click', () =>
-      card.classList.toggle('expanded')
-    )
-  );
 }
 
 // ── Initialise ─────────────────────────────────────────────────────────────
@@ -145,12 +235,15 @@ contentEl.addEventListener('touchstart', e => {
 contentEl.addEventListener('touchend', e => {
   const delta = touchStartX - e.changedTouches[0].screenX;
   if (Math.abs(delta) > 60) {
-    if (delta > 0 && currentIdx < 6) currentIdx++;
+    if (delta > 0 && currentIdx < 7) currentIdx++;
     else if (delta < 0 && currentIdx > 0) currentIdx--;
     showDay(currentIdx);
-    tabsEl.children[currentIdx]?.scrollIntoView({
-      behavior: 'smooth', inline: 'center', block: 'nearest',
-    });
+    const targetTab = tabsEl.querySelector(`[data-idx="${currentIdx}"]`);
+    if (targetTab) {
+      targetTab.scrollIntoView({
+        behavior: 'smooth', inline: 'center', block: 'nearest',
+      });
+    }
   }
 }, { passive: true });
 
@@ -183,3 +276,4 @@ document.getElementById('dismissBtn').addEventListener('click', () =>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
+

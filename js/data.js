@@ -15,17 +15,21 @@
 // ── YouTube link builder ───────────────────────────────────────────────────
 
 function YT(url, title, channel) {
-  return `<a href="${url}" target="_blank" rel="noopener" class="video-link">` +
-    `<svg class="yt-icon" viewBox="0 0 28 20">` +
-    `<rect width="28" height="20" rx="4" fill="#FF0000"/>` +
-    `<polygon points="11,4 11,16 21,10" fill="#fff"/>` +
-    `</svg>` +
-    `<div class="yt-text">` +
-    `<div class="yt-title">${title}</div>` +
-    `<div class="yt-channel">${channel}</div>` +
-    `</div>` +
-    `<span class="yt-arrow">›</span>` +
-    `</a>`;
+  let videoId = '';
+  if (url.includes('v=')) {
+    videoId = url.split('v=')[1].split('&')[0];
+  }
+  if (!videoId) return '';
+
+  return `<div class="video-wrapper">
+    <div class="video-container">
+      <iframe class="inline-video" loading="lazy" src="https://www.youtube-nocookie.com/embed/${videoId}" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-caption">
+      <div class="video-title">${title}</div>
+      <div class="video-channel">via ${channel}</div>
+    </div>
+  </div>`;
 }
 
 // ── Training plan data ─────────────────────────────────────────────────────
@@ -41,7 +45,7 @@ const DAYS = [
         why: 'Warms up shoulders and thoracic spine.',
         cues: 'Keep elbows tight. Circle close to head. Engage core.',
         prog: 'Increase KB weight when easy.',
-        yt: YT('https://www.youtube.com/watch?v=VVMsBOvaxqU', 'Kettlebell Halo Technique', 'Cavemantraining'),
+        yt: YT('https://youtube.com/watch?v=13SFATc-mJ4', 'How to perform the Kettlebell Halo', 'Coach Gabe West'),
       },
       {
         name: 'Bench Press', rx: '4 × 6 @ RPE 7–8', n: 0,
@@ -55,24 +59,21 @@ const DAYS = [
         why: 'Power declines ~2× faster than strength after 40. Low-rep explosive work counters this directly.',
         cues: 'Hands leave ground. Land soft. Full reset between reps.',
         prog: 'Knees → standard → clap push-ups.',
-        vi: 'plyo_pushup',
-        yt: YT('https://www.youtube.com/watch?v=EYwjhBMat-g', 'Plyo Push-Up Step by Step', 'THENX'),
+        yt: YT('https://youtube.com/watch?v=FFlAcBTd_K0', 'Home Workout | Pushups Only', 'THENX'),
       },
       {
         name: 'Ring Dips', rx: '3 × 8', n: 1,
         why: 'Rings let wrists rotate — more shoulder-friendly. Adds stabilizer demand.',
         cues: 'Turn rings out at top (RTO). Control descent. Parallel bars if no rings.',
         prog: 'Bodyweight → +2.5kg vest → RTO hold 2s.',
-        vi: 'ring_dips',
-        yt: YT('https://www.youtube.com/watch?v=2bnGICa1_XQ', 'Ring Dips for Beginners', 'FitnessFAQs'),
+        yt: YT('https://youtube.com/watch?v=AdUfoCj3COQ', 'Rings For Beginners Made Easy (BEST EXERCISES!)', 'FitnessFAQs'),
       },
       {
         name: 'Floor Press', rx: '3 × 10', n: 1,
         why: 'Limits ROM to protect shoulders, overloads triceps. Great for 50+.',
         cues: 'Elbows touch ground gently. No bouncing. DB or barbell.',
         prog: 'Small weight increments. Focus lockout.',
-        vi: 'floor_press',
-        yt: YT('https://www.youtube.com/watch?v=1jJCyT-oJDs', 'Floor Press Technique', 'Jeff Nippard'),
+        yt: YT('https://youtube.com/watch?v=ptpmRrzRtWQ', 'The Fastest Way To Blow Up Your Bench Press (4 Science-Based Steps) + Sample Program', 'Jeff Nippard'),
       },
       {
         name: 'Heavy Rope Finisher', rx: '5 × 30s on / 30s off', n: 0,
@@ -106,15 +107,13 @@ const DAYS = [
         why: 'Decompresses spine. Builds grip. Improves shoulder health passively.',
         cues: 'Fully relax. Shoulders by ears is fine. Breathe deeply.',
         prog: '45s → 60s → single-arm (assisted).',
-        vi: 'dead_hang',
-        yt: YT('https://www.youtube.com/watch?v=qTNELEMCbk0', 'Dead Hang Benefits', 'Minus The Gym'),
+        yt: YT('https://youtube.com/watch?v=M25ibDAVhMQ', 'How Dead Hangs Improve Your Life', 'Minus The Gym'),
       },
       {
         name: 'L-Sit Progression', rx: '3 × 15–20 sec hold', n: 1,
         why: 'Deep core that sit-ups never reach. Hip flexor strength.',
         cues: 'Parallettes or dip bars. Push shoulders down hard. Tuck knees if needed.',
         prog: 'Tuck → one leg → full L-sit → toes-to-bar.',
-        vi: 'l_sit',
         yt: YT('https://www.youtube.com/watch?v=IUZJoSP66HI', 'L-Sit Progressions', 'FitnessFAQs'),
       },
       {
@@ -122,7 +121,6 @@ const DAYS = [
         why: "Anti-rotation core. Trains resisting movement — core's actual job.",
         cues: "Cable/band chest height. Press out, hold 2s. Don't rotate.",
         prog: 'More tension. Pallof with overhead reach.',
-        vi: 'pallof_press',
         yt: YT('https://www.youtube.com/watch?v=AH_QZLm_0-s', 'Pallof Press — Best Core Exercise', 'ATHLEAN-X'),
       },
       {
@@ -130,8 +128,7 @@ const DAYS = [
         why: 'Hip mobility degrades silently after 40. Best stretch for rotation.',
         cues: 'Front shin parallel to shoulders. Both knees 90°. Sit tall, lean forward.',
         prog: 'Add rotation. Forward fold over front shin.',
-        vi: 'hip_90_90',
-        yt: YT('https://www.youtube.com/watch?v=Fh-O1bB1M1E', '90/90 Hip Mobility', 'Squat University'),
+        yt: YT('https://youtube.com/watch?v=BNWLBuohUGQ', 'Top 3 Hip Mobility Openers', 'Squat University'),
       },
     ],
   },
@@ -152,16 +149,14 @@ const DAYS = [
         why: 'Clean & press = full-body power, easier on wrists than barbell cleans.',
         cues: "Clean: rack smoothly, don't bang forearm. Snap hips on swings.",
         prog: 'Heavier KB. Then +2 reps each.',
-        vi: 'kb_clean_press',
-        yt: YT('https://www.youtube.com/watch?v=0EaJMZFNaSU', 'KB Clean & Press Tutorial', 'Cavemantraining'),
+        yt: YT('https://youtube.com/watch?v=eaQPi0LDoE0', 'Learn in 1 minute - KB Clean & Press - the most important queues #kettlebells #fitness #training', 'Mark Wildman'),
       },
       {
         name: 'Complex C: Bodyweight', rx: '3 rds: 5 exp. PU → 10 Hindu PU → 10 jump sq.', n: 1,
         why: 'Hindu push-ups = shoulder mobility + pressing. Wrestling conditioning staple.',
         cues: 'Hindu PU: down dog → swoop chest through → cobra → reverse.',
         prog: 'Pull-ups → chest-to-bar. Hindu PU: 3s swoop.',
-        vi: 'hindu_pushup',
-        yt: YT('https://www.youtube.com/watch?v=WT2fk8mFiVE', 'Hindu Push-Up Form', 'Hybrid Calisthenics'),
+        yt: YT('https://youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups: A Brief How-To Guide | 9MinuteChallenge.com', 'Aleks Salkin'),
       },
     ],
   },
@@ -176,8 +171,7 @@ const DAYS = [
         why: 'Activates lower traps + serratus. Shoulder insurance.',
         cues: 'Hang straight. Retract + depress scapulae — rise without bending elbows. Hold 1s.',
         prog: '3s hold. Then single-arm (assisted).',
-        vi: 'scapular_pullup',
-        yt: YT('https://www.youtube.com/watch?v=M2-bXkPsjSI', 'Scapular Pull-Ups', 'FitnessFAQs'),
+        yt: YT('https://youtube.com/watch?v=9M8ylnbriB0', 'Simple Scap Pull-up Tutorial', 'livfitkarl'),
       },
       {
         name: 'Weighted Pull-Ups', rx: '4 × 5 @ RPE 7–8', n: 0,
@@ -191,8 +185,7 @@ const DAYS = [
         why: 'Bridge to one-arm. One arm works, other assists.',
         cues: 'Wide grip. Pull to one hand, other straightens. Alternate.',
         prog: '3×3 → 3×5 → less assist → typewriters.',
-        vi: 'archer_pullup',
-        yt: YT('https://www.youtube.com/watch?v=GlNJC-JfMIs', 'Archer Pull-Up Tutorial', 'THENX'),
+        yt: YT('https://youtube.com/watch?v=6qtY8j92gA8', 'How-To: Archer Pull-Up [5 Progression Tutorial]', 'Pullup & Dip'),
       },
       {
         name: 'Curls', rx: '3 × 10', n: 0,
@@ -205,7 +198,6 @@ const DAYS = [
         why: 'Rear delts + external rotators. #1 exercise for shoulder longevity.',
         cues: 'Pull to ears, externally rotate — thumbs back. Squeeze 2s.',
         prog: 'More tension. 3s hold. Single-arm.',
-        vi: 'face_pulls',
         yt: YT('https://www.youtube.com/watch?v=rep-qVOkqgk', 'Face Pulls Done Right', 'Jeff Nippard'),
       },
       {
@@ -213,8 +205,7 @@ const DAYS = [
         why: 'Bulletproof shoulders through full ROM. Outstanding mobility + strength.',
         cues: 'Tuck knees, rotate backward. Start with first half only. Go as far as comfortable. SLOW.',
         prog: 'Tuck → straight legs → German hang pause → full rotation.',
-        vi: 'skin_the_cat',
-        yt: YT('https://www.youtube.com/watch?v=2J2RiLsaYNk', 'Skin the Cat — Beginner Tutorial', 'FitnessFAQs'),
+        yt: YT('https://youtube.com/watch?v=QHnpUcVwZOk', 'How to Skin the Cat', 'The Movement Collective'),
       },
       {
         name: 'Rope Skipping Cooldown', rx: '5 min, easy', n: 0,
@@ -242,7 +233,6 @@ const DAYS = [
         why: 'Single-leg strength. Fixes imbalances. Knee-friendly for 45+.',
         cues: 'Rear foot on bench, laces down. Front shin vertical. Back knee to floor.',
         prog: 'Bodyweight → goblet → double DB → deficit.',
-        vi: 'bulgarian_split',
         yt: YT('https://www.youtube.com/watch?v=2C-uNgKwPLE', 'Bulgarian Split Squat', 'Jeff Nippard'),
       },
       {
@@ -257,8 +247,7 @@ const DAYS = [
         why: "Best hamstring exercise. Dramatically reduces injury risk. Being bad at it = it's working.",
         cues: 'Kneel, anchor feet. Lower as slowly as possible (5s). Catch with hands.',
         prog: 'Longer negatives → half concentric → full Nordic.',
-        vi: 'nordic_curl',
-        yt: YT('https://www.youtube.com/watch?v=ORAZE8-vkjM', 'Nordic Curl Progression', 'Knees Over Toes Guy'),
+        yt: YT('https://youtube.com/watch?v=_e9vFU9-tkc', 'How to Set Up, Perform, & Program Nordic Hamstring Curls (Progressions | Regressions | Alternatives)', 'E3 Rehab'),
       },
       {
         name: 'Calf Raises', rx: '3 × 15, slow', n: 0,
@@ -291,7 +280,6 @@ const DAYS = [
         why: 'Floor→standing with weight overhead. Tests everything: shoulder, hip, core, balance. The "am I aging well?" exercise.',
         cues: 'Start with empty hand or shoe on fist. Eye on KB always. Every position = pause. Learn 7 positions first.',
         prog: 'Positions → add weight → eventually ¼ bodyweight.',
-        vi: 'turkish_getup',
         yt: YT('https://www.youtube.com/watch?v=0bWRPC49-KI', 'Turkish Get-Up Step by Step', 'StrongFirst'),
       },
       {
@@ -299,22 +287,21 @@ const DAYS = [
         why: 'Overhead stability, wrist strength, body awareness. Fall-prevention at 50+.',
         cues: 'Chest to wall, hands 15cm away. Squeeze glutes + core. Too hard = pike, feet on box.',
         prog: 'Wall → toe pulls → freestanding → HS push-up negatives.',
-        vi: 'handstand',
-        yt: YT('https://www.youtube.com/watch?v=K8aMBOh83xI', 'Handstand Progressions', 'FitnessFAQs'),
+        yt: YT('https://youtube.com/watch?v=r0rLCKvcqnQ', '10 Steps To Handstand! 🤸✅', 'C-RAY'),
       },
       {
         name: 'T-Spine Rotation', rx: '2 min each side', n: 1,
         why: 'Counters desk/age stiffness in mid-back. Opens breathing + overhead.',
         cues: 'Side-lying, knees stacked 90°. Open top arm, rotate, follow with eyes.',
         prog: 'Light reach at end. Then quadruped T-spine.',
-        yt: YT('https://www.youtube.com/watch?v=xuCVYmGMSzg', 'T-Spine Mobility', 'Squat University'),
+        yt: YT('https://youtube.com/watch?v=426rzPkx4D8', '10 Min. Thoracic Spine Mobility Routine | Stretch & Strengthen Upper & Mid Back', 'mobility by julia reppel'),
       },
       {
         name: 'Deep Squat Sit', rx: 'Accumulate 3 min', n: 1,
         why: 'Best thing for hip/ankle/back mobility. Most adults lose it by 40.',
         cues: 'Heels down (plates if needed). Hold something for balance. Shift weight. Relax.',
         prog: 'Assisted → free → hold KB → Cossack transitions.',
-        yt: YT('https://www.youtube.com/watch?v=M9_LhEoSEWA', 'Reclaim Your Deep Squat', 'Squat University'),
+        yt: YT('https://youtube.com/watch?v=BTfEFDXp-cw', 'Improve Your Squat Mobility Forever (FULL WORKOUT)', 'FitnessFAQs'),
       },
     ],
   },

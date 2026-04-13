@@ -229,18 +229,6 @@ html, body {
   border: 1px solid var(--tag-new);
 }
 
-.exercise-chevron {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  color: var(--text-dim);
-  transition: transform .25s;
-}
-
-.exercise-card.expanded .exercise-chevron {
-  transform: rotate(180deg);
-  color: var(--accent);
-}
 
 .exercise-details {
   display: none;
@@ -282,79 +270,51 @@ html, body {
   font-style: italic;
 }
 
-/* ── Visual cues (SVG positions) ─────────────────────────── */
-.visual-cue {
-  margin-top: 12px;
-  background: var(--surface2);
+
+
+/* ── Inline Videos ───────────────────────────────────────── */
+.video-wrapper {
+  margin-top: 16px;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
-.visual-positions {
-  display: flex;
-  gap: 2px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding: 0;
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background: var(--surface2);
 }
 
-.visual-positions::-webkit-scrollbar { display: none; }
-
-.visual-pos {
-  flex: 1;
-  min-width: 0;
-  text-align: center;
-  padding: 10px 6px 8px;
+.inline-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
 }
 
-.visual-pos .pos-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: .58rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-top: 6px;
-}
-
-/* ── YouTube links ───────────────────────────────────────── */
-.video-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
+.video-caption {
   padding: 10px 14px;
-  background: #1a1215;
-  border: 1px solid #3a1520;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background .2s;
 }
 
-.video-link:active { background: #2a1525; }
-.video-link .yt-icon { flex-shrink: 0; width: 28px; height: 20px; }
-.video-link .yt-text { flex: 1; }
-
-.video-link .yt-title {
+.video-title {
   font-family: 'Oswald', sans-serif;
-  font-size: .75rem;
+  font-size: .8rem;
   font-weight: 600;
   letter-spacing: .05em;
   color: var(--text);
   line-height: 1.2;
 }
 
-.video-link .yt-channel {
-  font-size: .68rem;
+.video-channel {
+  font-size: .7rem;
   color: var(--text-dim);
-  margin-top: 1px;
-}
-
-.video-link .yt-arrow {
-  flex-shrink: 0;
-  color: var(--text-dim);
-  font-size: 1rem;
+  margin-top: 2px;
 }
 
 /* ── Day notes ───────────────────────────────────────────── */
@@ -478,3 +438,138 @@ html, body {
   margin-left: 12px;
   text-decoration: underline;
 }
+
+/* ── Profile ─────────────────────────────────────────────── */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s, transform .1s;
+}
+
+.profile-card:active {
+  border-color: var(--accent);
+  transform: scale(0.98);
+}
+
+.profile-val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.profile-unit {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-left: 4px;
+}
+
+.profile-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+
+/* ── Weight Tracking ─────────────────────────────────────── */
+.weight-tracker {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.weight-inputs-scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.weight-inputs-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.weight-inputs-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.weight-inputs {
+  display: flex;
+  gap: 12px;
+  min-width: min-content;
+}
+
+.set-input-group {
+  flex-shrink: 0;
+}
+
+.set-input-group label {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.input-with-unit {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-unit input {
+  width: 70px;
+  padding: 8px 30px 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-with-unit input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.input-with-unit span {
+  position: absolute;
+  right: 8px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+/* Hide number input arrows */
+.input-with-unit input::-webkit-outer-spin-button,
+.input-with-unit input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
