@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Training Plan</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="week-label">4-Week Cycle</div>
+    <h1>Training Plan</h1>
+  </div>
+
+  <div class="day-tabs" id="dayTabs"></div>
+  <div class="content"  id="content"></div>
+
+  <div class="install-banner" id="installBanner">
+    <p>Install for quick offline access</p>
+    <button class="install-btn" id="installBtn">Install</button>
+    <button class="dismiss-btn" id="dismissBtn">Not now</button>
+  </div>
+
+  <!-- Load order matters: visuals → data → app -->
+  <script src="js/visuals.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
