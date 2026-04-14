@@ -24,7 +24,8 @@
  */
 const timerState = {
   tickId: null, dayId: null, exIdx: null,
-  round: 1, phase: 'idle', remaining: 0,
+  round: 1, phaseIdx: 0, remaining: 0,
+  segments: [], // [{label, dur, colorPhase}]
   config: null, epochEnd: 0,
 };
 
@@ -115,7 +116,7 @@ function timerUpdateDOM() {
   const roundEl  = panel.querySelector('.timer-round');
   const startBtn = panel.querySelector('.timer-start-btn');
 
-  if (st.phase === 'done') {
+  if (st.phaseIdx === -1) { // done
     panel.dataset.phase = 'done';
     phaseEl.textContent = 'DONE';
     countEl.textContent = '\u2713';
@@ -124,11 +125,9 @@ function timerUpdateDOM() {
     return;
   }
 
-  const label = st.phase === 'work'
-    ? (st.config.workLabel || 'WORK')
-    : (st.config.restLabel || 'REST');
-  panel.dataset.phase = st.phase;
-  phaseEl.textContent = label;
+  const seg = st.segments[st.phaseIdx];
+  panel.dataset.phase = seg.colorPhase;
+  phaseEl.textContent = seg.label;
   countEl.textContent = timerFmt(st.remaining);
   roundEl.textContent = `Round ${st.round} / ${st.config.rounds}`;
   if (startBtn) startBtn.textContent = st.tickId ? '\u23f8 Pause' : '\u25b6 Start';
@@ -143,24 +142,28 @@ function timerTick() {
   st.remaining = Math.max(0, Math.round((st.epochEnd - now) / 1000));
 
   if (st.remaining <= 0) {
-    if (st.phase === 'work') {
-      timerBeep(660, 0.12);
-      st.phase    = 'rest';
-      st.epochEnd = now + st.config.rest * 1000;
-      st.remaining = st.config.rest;
-    } else {
+    st.phaseIdx++;
+    if (st.phaseIdx >= st.segments.length) {
+      // End of round
+      st.phaseIdx = 0;
       st.round++;
       if (st.round > st.config.rounds) {
-        st.phase = 'done';
+        st.phaseIdx = -1; // done
         clearInterval(st.tickId); st.tickId = null;
         timerBeep(880, 0.15);
         setTimeout(() => timerBeep(1100, 0.15), 220);
       } else {
         timerBeep(880, 0.2);
-        st.phase    = 'work';
-        st.epochEnd = now + st.config.work * 1000;
-        st.remaining = st.config.work;
       }
+    } else {
+      // Transition to next segment in same round
+      timerBeep(660, 0.12);
+    }
+
+    if (st.phaseIdx !== -1) {
+      const nextSeg = st.segments[st.phaseIdx];
+      st.epochEnd = now + nextSeg.dur * 1000;
+      st.remaining = nextSeg.dur;
     }
   }
   timerUpdateDOM();
@@ -174,10 +177,10 @@ function timerTick() {
  */
 window.timerStart = function(dayId, exIdx) {
   const st = timerState;
-  if ((st.dayId !== dayId || st.exIdx !== exIdx) && st.phase !== 'idle') {
+  if ((st.dayId !== dayId || st.exIdx !== exIdx) && st.config !== null) {
     window.timerReset(st.dayId, st.exIdx);
   }
-  if (st.phase === 'done') { window.timerReset(dayId, exIdx); return; }
+  if (st.phaseIdx === -1) { window.timerReset(dayId, exIdx); return; }
 
   if (st.tickId) {
     // Pause
@@ -185,12 +188,21 @@ window.timerStart = function(dayId, exIdx) {
     timerUpdateDOM(); return;
   }
 
-  if (st.phase === 'idle') {
+  if (st.config === null) {
     const cfg = getTimerConfig(dayId, exIdx);
     if (!cfg) return;
+    
+    // Build segments list
+    const segments = [
+      { label: cfg.workLabel || 'WORK', dur: cfg.work,   colorPhase: 'work' },
+      cfg.trans ? { label: cfg.transLabel || 'READY',  dur: cfg.trans,  colorPhase: 'rest' } : null,
+      { label: cfg.restLabel || 'REST', dur: cfg.rest,   colorPhase: 'rest' },
+      cfg.rest2 ? { label: cfg.rest2Label || 'REST', dur: cfg.rest2, colorPhase: 'rest' } : null
+    ].filter(Boolean);
+
     Object.assign(st, {
-      dayId, exIdx, config: cfg,
-      round: 1, phase: 'work', remaining: cfg.work,
+      dayId, exIdx, config: cfg, segments,
+      round: 1, phaseIdx: 0, remaining: segments[0].dur,
     });
   }
   st.epochEnd = Date.now() + st.remaining * 1000;
@@ -205,7 +217,7 @@ window.timerReset = function(dayId, exIdx) {
   if (st.tickId) { clearInterval(st.tickId); st.tickId = null; }
   Object.assign(st, {
     dayId: null, exIdx: null, round: 1,
-    phase: 'idle', remaining: 0, config: null,
+    phaseIdx: 0, segments: [], remaining: 0, config: null,
   });
 
   const panel = document.getElementById(`timer-${dayId}-${exIdx}`);
@@ -221,6 +233,11 @@ window.timerReset = function(dayId, exIdx) {
 
 // ── Rendering ──────────────────────────────────────────────────────────────
 
+/**
+ * Returns the HTML string for a fully self-contained timer panel.
+ * Uses any stored config overrides so the panel reflects the current settings.
+ * Called by renderDay() in app.js.
+ */
 /**
  * Returns the HTML string for a fully self-contained timer panel.
  * Uses any stored config overrides so the panel reflects the current settings.
@@ -243,6 +260,18 @@ function renderTimer(ex, dayId, exIdx) {
       </div>
     </div>`;
 
+  // Build legend HTML
+  const segments = [
+    { label: cfg.workLabel || 'WORK', dur: cfg.work,  cls: 'legend-work' },
+    cfg.trans ? { label: cfg.transLabel || 'READY', dur: cfg.trans, cls: 'legend-rest' } : null,
+    { label: cfg.restLabel || 'REST', dur: cfg.rest,  cls: 'legend-rest' },
+    cfg.rest2 ? { label: cfg.rest2Label || 'REST', dur: cfg.rest2, cls: 'legend-rest' } : null
+  ].filter(Boolean);
+
+  const legendHtml = segments.map((s, idx) => 
+    `<span class="${s.cls}">${s.label} ${s.dur}s</span>`
+  ).join('<span class="legend-divider">/</span>');
+
   return `
     <div class="timer-panel" id="${id}" data-phase="idle">
       <div class="timer-meta">
@@ -252,9 +281,7 @@ function renderTimer(ex, dayId, exIdx) {
       <div class="timer-phase">${cfg.workLabel || 'WORK'}</div>
       <div class="timer-count">${timerFmt(cfg.work)}</div>
       <div class="timer-legend">
-        <span class="legend-work">${cfg.workLabel || 'WORK'} ${cfg.work}s</span>
-        <span class="legend-divider">/</span>
-        <span class="legend-rest">${cfg.restLabel || 'REST'} ${cfg.rest}s</span>
+        ${legendHtml}
       </div>
       <div class="timer-controls">
         <button class="timer-btn timer-reset-btn"

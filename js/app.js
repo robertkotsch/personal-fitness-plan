@@ -162,57 +162,6 @@ function renderStepper(day, exIdx, setIdx, ex) {
     </div>`;
 }
 
-/**
- * Renders a self-contained interval timer panel for the given exercise.
- * Phase colours and labels change automatically as the timer runs.
- */
-function renderTimer(ex, dayId, exIdx) {
-  // Use stored overrides if present, otherwise exercise defaults
-  const cfg     = getTimerConfig(dayId, exIdx);
-  const totalMin = Math.ceil(cfg.rounds * (cfg.work + cfg.rest) / 60);
-  const id      = `timer-${dayId}-${exIdx}`;
-
-  // Tiny inline stepper for a single timer parameter
-  const paramStepper = (param, label, val, delta) => `
-    <div class="tcfg-item">
-      <div class="tcfg-label">${label}</div>
-      <div class="tcfg-row">
-        <button class="tcfg-btn"
-          onclick="stepTimerParam('${dayId}', ${exIdx}, '${param}', ${-delta})">&#8722;</button>
-        <span class="tcfg-val" id="tcfg-${param}-${dayId}-${exIdx}">${val}</span>
-        <button class="tcfg-btn"
-          onclick="stepTimerParam('${dayId}', ${exIdx}, '${param}', ${delta})">+</button>
-      </div>
-    </div>`;
-
-  return `
-    <div class="timer-panel" id="${id}" data-phase="idle">
-      <div class="timer-meta">
-        <span class="timer-round">Round 1 / ${cfg.rounds}</span>
-        <span class="timer-total">~${totalMin} min total</span>
-      </div>
-      <div class="timer-phase">${cfg.workLabel || 'WORK'}</div>
-      <div class="timer-count">${timerFmt(cfg.work)}</div>
-      <div class="timer-legend">
-        <span class="legend-work">${cfg.workLabel || 'WORK'} ${cfg.work}s</span>
-        <span class="legend-divider">/</span>
-        <span class="legend-rest">${cfg.restLabel || 'REST'} ${cfg.rest}s</span>
-      </div>
-      <div class="timer-controls">
-        <button class="timer-btn timer-reset-btn"
-          onclick="timerReset('${dayId}', ${exIdx})">↺</button>
-        <button class="timer-btn timer-start-btn"
-          onclick="timerStart('${dayId}', ${exIdx})">▶ Start</button>
-      </div>
-      <div class="timer-config">
-        ${paramStepper('rounds', 'Rounds', cfg.rounds,    1)}
-        <div class="tcfg-divider"></div>
-        ${paramStepper('work',   'Work',   cfg.work + 's', 5)}
-        <div class="tcfg-divider"></div>
-        ${paramStepper('rest',   'Rest',   cfg.rest + 's', 5)}
-      </div>
-    </div>`;
-}
 
 /**
  * Returns the full HTML string for a given day.
@@ -320,9 +269,24 @@ function showDay(idx) {
   } else {
     contentEl.innerHTML = renderDay(DAYS[idx]);
     contentEl.querySelectorAll('.exercise-card').forEach(card => {
-      card.querySelector('.exercise-header').addEventListener('click', () =>
-        card.classList.toggle('expanded')
-      );
+      card.querySelector('.exercise-header').addEventListener('click', () => {
+        const isExpanded = card.classList.contains('expanded');
+
+        // Accordion: Collapse all other cards in this day
+        contentEl.querySelectorAll('.exercise-card').forEach(c => {
+          if (c !== card) c.classList.remove('expanded');
+        });
+
+        // Toggle the clicked card
+        card.classList.toggle('expanded', !isExpanded);
+
+        // Auto-scroll expanded card into view
+        if (!isExpanded) {
+          setTimeout(() => {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 250); // wait for CSS transition
+        }
+      });
       // Stepper + timer buttons must not collapse the card when tapped
       card.querySelectorAll('.stepper-btn, .timer-btn, .tcfg-btn').forEach(btn =>
         btn.addEventListener('click', e => e.stopPropagation())

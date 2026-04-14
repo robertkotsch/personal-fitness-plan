@@ -55,7 +55,7 @@
 ### Warm-Up (~8 min)
 
 1. **KB Halo** [🎥 Video Tutorial](https://youtube.com/watch?v=13SFATc-mJ4) — 2×8 each direction, 20 kg (~2 min)
-   - **Why:** Active shoulder and thoracic warm-up before explosive work.
+   - **Why:** Active shoulder and thoracic warm-up before explosive work. Calibrated to 20 kg to maintain 8 reps per side.
 
 2. **Easy Rope Skipping** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kDOGb9C5kp0) — 5 min, Zone 1 (~5 min)
    - **Why:** You're about to do heavy rope power skipping, explosive pull-ups, and jump squats. Warming up shoulders, wrists, and ankles first is non-negotiable.
@@ -66,8 +66,8 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 #### Complex A: Rope & Burpee
 
-- 4 rounds: 40s power rope skip (2 lb heavy) [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=auBLPXO8Fww) → 20s rest
-- **Why:** Shifts stimulus from pure cardio endurance to massive upper-body/lat pre-exhaustion before hitting the burpees.
+- 4 rounds: 40s rope skip (2 lb) [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) → 20s ready/transition → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=auBLPXO8Fww) → 20s rest
+- **Why:** Shifts stimulus from pure cardio endurance to massive upper-body/lat pre-exhaustion. Added 20s "ready" phase to safely toss the heavy rope and prepare for burpees.
 
 #### Complex B: Kettlebell Circuit
 
@@ -78,8 +78,8 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 #### Complex C: Bodyweight Power
 
-- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=72t8p_xq7lo) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats [🎥 Video Tutorial](https://www.youtube.com/watch?v=mnbG9lKTYMo) → 30s rest
-- **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple. Explosive pull-ups maintain power output.
+- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=72t8p_xq7lo) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats (2x12kg DB) [🎥 Video Tutorial](https://www.youtube.com/watch?v=mnbG9lKTYMo) → 30s rest
+- **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple. Added 12kg load to jump squats for sustained power output.
 
 ### Core Circuit (~8 min)
 
@@ -214,8 +214,9 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 1. **KB Goblet Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=lRYBbchqxtI) — 4×10, 24 kg, 3s pause at bottom
    - **Why:** Builds squat depth and strength. Pause eliminates stretch reflex and forces honest reps.
 
-2. **Bulgarian Split Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kU8O3yqE-O8) — 3×8 each leg, 2×14 kg DB
-   - **Why:** Single-leg strength builder. Exposes and fixes imbalances. More knee-friendly than heavy barbell squats for 45+.
+2. **Bulgarian Split Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kU8O3yqE-O8) — 3×8 each leg, 2 × 12 kg DB
+   - **Why:** Single-leg strength builder. Fixes imbalances. Use 12 kg dumbbells (standard step).
+   - **Progression:** BW → 2×12 kg → 2×16 kg → 2×20 kg.
 
 3. **Single-Leg Romanian Deadlift** [🎥 Video Tutorial](https://www.youtube.com/watch?v=0h59L-f220Q)
    - **Sets × Reps:** 3×8 each leg

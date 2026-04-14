@@ -94,7 +94,7 @@ const DAYS = [
       },
       {
         name: 'Floor Press', rx: '3 × 10', n: 1,
-        unit: 'kg', recommended: 28, step: 2.5,
+        unit: 'kg', recommended: 28, step: 4,
         why: 'Limits ROM to protect shoulders, overloads triceps. Great for 50+.',
         cues: 'Elbows touch ground gently each rep. No bouncing. 2 × 28 kg dumbbells.',
         prog: '+2.5 kg per DB when all sets hit 10.',
@@ -128,8 +128,9 @@ const DAYS = [
     exercises: [
       {
         name: 'KB Halo (Warm-Up)', rx: '2 × 8 each direction', n: 0,
-        track: false,
-        why: 'Prepare shoulders before heavy pulling/swinging.',
+        unit: 'kg', recommended: 20, step: 4,
+        track: true,
+        why: 'Prepare shoulders before heavy pulling/swinging. Calibration: 20kg used to ensure 8 reps each side.',
         cues: 'Keep elbows tight. Circle close to head. Engage core.',
         prog: 'Controlled movement.',
         yt: YT('https://youtube.com/watch?v=13SFATc-mJ4', 'How to perform the Kettlebell Halo', 'Coach Gabe West'),
@@ -143,9 +144,12 @@ const DAYS = [
         yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Jump Rope Basics For Beginners', 'Jump Rope Dudes'),
       },
       {
-        name: 'Complex A: Rope (2 lb) & Burpee', rx: '4 rds: 40s power rope → 10 burpees → 20s rest', n: 1,
+        name: 'Complex A: Rope (2 lb) & Burpee', rx: '4 rds: 40s rope → 20s ready → 10 burpees → 20s rest', n: 1,
         track: false,
-        timer: { rounds: 4, work: 40, rest: 20, workLabel: 'ROPE', restLabel: 'BURPEES' },
+        timer: { 
+          rounds: 4, work: 40, trans: 20, rest: 20, rest2: 20,
+          workLabel: 'ROPE', transLabel: 'READY', restLabel: 'BURPEES', rest2Label: 'REST' 
+        },
         why: 'Shifts stimulus from endurance to massive upper-body/lat pre-exhaustion before burpees.',
         cues: 'Keep wrists strong. Drive rotation from lats. Don\'t let 2lb rope pull you out of posture.',
         prog: '+5s rope per round. Then +2 burpees.',
@@ -160,11 +164,12 @@ const DAYS = [
         yt: YT('https://www.youtube.com/watch?v=eaQPi0LDoE0', 'KB Clean & Press', 'Mark Wildman') + YT('https://www.youtube.com/watch?v=K83RM7H9WrY', 'KB Swing Form', 'Squat University') + YT('https://www.youtube.com/watch?v=lRYBbchqxtI', 'Goblet Squat Form', 'Squat University'),
       },
       {
-        name: 'Complex C: Bodyweight Power', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats', n: 1,
-        track: false,
-        why: 'Explosive upper body and lower body power conditioning. Hindu push-ups combine shoulder mobility with pressing.',
-        cues: 'Pull-ups: pull fast, clear the bar. Hindu PU: down dog → swoop chest through → cobra → reverse.',
-        prog: 'Pull-ups → chest-to-bar → muscle-up negatives. Hindu PU: slow swoop to 3s.',
+        name: 'Complex C: Power Circuit', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats (2x12kg)', n: 1,
+        unit: 'kg', recommended: 12, step: 4,
+        track: true,
+        why: 'Explosive upper body and lower body power conditioning. Added load to jump squats for progression.',
+        cues: 'Jump Squats: 10kg DB in each hand. Pull-ups: pull fast, clear the bar. Hindu PU: swooping motion.',
+        prog: 'Pull-ups → chest-to-bar. Jump Squats: 10kg → 12kg.',
         yt: YT('https://www.youtube.com/watch?v=72t8p_xq7lo', '3 BEST Exercises for EXPLOSIVE PULL-UPS', 'FitnessFAQs') + YT('https://www.youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups', 'Aleks Salkin') + YT('https://www.youtube.com/watch?v=mnbG9lKTYMo', 'Jumping Squats', 'CrossFit'),
       },
       {
@@ -416,10 +421,10 @@ const DAYS = [
       },
       {
         name: 'Bulgarian Split Squat', rx: '3 × 8 each leg', n: 1,
-        unit: 'kg', recommended: 14, step: 2,
+        unit: 'kg', recommended: 12, step: 4,
         why: 'Single-leg strength builder. Exposes and fixes imbalances. More knee-friendly than heavy barbell squats for 45+.',
-        cues: 'Rear foot on bench, shoelaces down. Front shin roughly vertical. 2 × 14 kg dumbbells.',
-        prog: 'BW → 2×14 kg DB → 2×18 kg DB → 2×22 kg DB → add deficit (front foot elevated).',
+        cues: 'Rear foot on bench, shoelaces down. Front shin roughly vertical. 2 × 12 kg dumbbells.',
+        prog: 'BW → 2×12 kg DB → 2×16 kg DB → 2×20 kg DB → add deficit (front foot elevated).',
         yt: YT('https://www.youtube.com/watch?v=kU8O3yqE-O8', 'Bulgarian Split Squat', 'Jeff Nippard'),
       },
       {
