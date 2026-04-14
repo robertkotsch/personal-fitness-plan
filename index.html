@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#0a0a0a">
-  <title>Training Plan</title>
+  <title>Rob's Training Plan</title>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="css/styles.css">
@@ -15,7 +15,7 @@
 
   <div class="header">
     <div class="week-label">4-Week Cycle</div>
-    <h1>Training Plan</h1>
+    <h1>Rob's Training Plan</h1>
   </div>
 
   <div class="day-tabs" id="dayTabs"></div>
@@ -27,8 +27,9 @@
     <button class="dismiss-btn" id="dismissBtn">Not now</button>
   </div>
 
-  <!-- Load order matters: data → app -->
+  <!-- Load order matters: data → timer → app -->
   <script src="js/data.js"></script>
+  <script src="js/timer.js"></script>
   <script src="js/app.js"></script>
 
 </body>

@@ -1,21 +1,21 @@
-# Training Plan — Calibrated Data
+# Rob's Training Plan — Calibrated Data
 
 ## Athlete Profile
 
-| Metric | Value |
-|---|---|
-| Age | 51 |
-| Weight | 91 kg |
-| Height | 1.93 m |
-| VO2max | 50 (90th percentile for age) |
-| Est. Bench 1RM | ~107 kg (based on 80 kg × 12) |
-| Pull-ups (BW) | 12 clean (historic max: 18) |
-| Est. Pull-up 1RM | ~+25–30 kg added |
-| Kettlebell | 20 kg (transitioning to 24 kg) |
-| Heavy rope | 1 lb |
-| Rope endurance | 1h+ continuous |
-| Gym access | Full gym (cables, rings, machines). Prefers free weights. |
-| Zone 2 HR | 130–140 bpm |
+| Metric           | Value                                                     |
+| ---------------- | --------------------------------------------------------- |
+| Age              | 51                                                        |
+| Weight           | 91 kg                                                     |
+| Height           | 1.93 m                                                    |
+| VO2max           | 50 (90th percentile for age)                              |
+| Est. Bench 1RM   | ~107 kg (based on 80 kg × 12)                             |
+| Pull-ups (BW)    | 12 clean (historic max: 18)                               |
+| Est. Pull-up 1RM | ~+25–30 kg added                                          |
+| Kettlebell       | 20 kg (transitioning to 24 kg)                            |
+| Heavy rope       | 1 lb                                                      |
+| Rope endurance   | 1h+ continuous                                            |
+| Gym access       | Full gym (cables, rings, machines). Prefers free weights. |
+| Zone 2 HR        | 130–140 bpm                                               |
 
 ## Periodization
 
@@ -40,6 +40,7 @@
 - **Cues:** Keep elbows tight. Circle close to head. Engage core.
 - **Progression:** Move to 24 kg when 12 reps feel easy.
 - **Video:** https://youtube.com/watch?v=13SFATc-mJ4
+
 ### 2. Bench Press (Tempo)
 
 - **Sets × Reps:** 4 × 6 @ RPE 7–8
@@ -98,7 +99,7 @@
 
 ### 6. Heavy Rope Finisher
 
-- **Sets × Reps:** 5 × 40s on / 20s off
+- **Sets × Reps:** 5 × 40s on / 20s off (~5 min total)
 - **Rope:** 1 lb heavy rope
 - **HR target:** >160 bpm during work
 - **New:** No
@@ -112,18 +113,18 @@
 
 ## Tuesday — Rowing Engine + Core & Mobility (~50 min)
 
-### 1. Rowing Intervals
+### 1. 30 Min Rowing Fartlek
 
-- **Sets × Reps:** 6 × 500m, 90s rest
-- **Target pace:** 1:58–2:05 / 500m
+- **Sets × Reps:** 30 min continuous (1 min max sprint every 5 minutes)
+- **Target pace:** Max power during sprints, active recovery in between
 - **Damper:** 5–6 (at 1.93m height)
 - **Stroke rate:** 26–28 spm
-- **Total distance:** 3,000m work
+- **Total distance:** ~7,000m work (logged cumulatively)
 - **New:** No
-- **Why:** Aerobic power intervals. Height (1.93m) = longer stroke = advantage on rower.
-- **Cues:** Legs → lean → pull. Drive hard, recover slow.
-- **Progression:** Drop 2s/500m every 2 weeks. Then add 7th interval.
-- **Note:** At 91 kg and 1.93m, sub-2:00 pace is realistic for all 6 intervals.
+- **Why:** Fartlek-style interval training. Builds VO2 max during the sprints, while maintaining a strong aerobic base during recovery.
+- **Cues:** Hit true max power for 1 minute. Slow down but stay in motion for the 4-minute active recovery.
+- **Progression:** Increase your total distance logged over the full 30 minutes.
+- **Note:** At 91 kg and 1.93m, reaching 7km over 30 minutes is an incredibly strong benchmark.
 - **Video:** https://www.youtube.com/watch?v=zQ82RYIFLN8
 
 ### 2. Kettlebell Halo
@@ -137,7 +138,7 @@
 
 ### 3. Dead Hang
 
-- **Sets × Reps:** 3 × 45 sec
+- **Sets × Reps:** 3 × 45 sec (~4 min with rest)
 - **Load:** Bodyweight (91 kg)
 - **Rest:** 60 sec
 - **New:** Yes
@@ -150,7 +151,7 @@
 
 ### 4. L-Sit Progression
 
-- **Sets × Reps:** 3 × 15–20 sec hold
+- **Sets × Reps:** 3 × 15–20 sec hold (~3 min with rest)
 - **Equipment:** Parallettes or dip bars
 - **Start with:** Tuck L-sit (knees bent) if full is too hard
 - **Rest:** 60 sec
@@ -200,7 +201,7 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 ### Complex A: Rope & Burpee
 
 - **Rounds:** 3
-- **Work:** 45s heavy rope skip → 6 burpees → 15s rest
+- **Work:** 45s heavy rope skip → 6 burpees → 15s rest (~4 min per complex)
 - **Rope:** 1 lb heavy rope
 - **New:** No
 - **Why:** Full-body conditioning. Intervals pushed harder than standard because 1h+ rope endurance.
@@ -210,7 +211,7 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 ### Complex B: Kettlebell Circuit
 
 - **Rounds:** 3
-- **Work:** 5 clean & press each arm → 12 swings (Russian) → 5 goblet squats (2s pause) → 30s rest
+- **Work:** 5 clean & press each arm → 12 swings (Russian) → 5 goblet squats (2s pause) → 30s rest (~5–6 min per complex)
 - **KB weight:** 20 kg (transition to 24 kg when clean & press feels solid)
 - **New:** Yes
 - **Why:** Clean & press is full-body power, easier on wrists than barbell cleans.
@@ -222,7 +223,7 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 ### Complex C: Bodyweight Power
 
 - **Rounds:** 3
-- **Work:** 5 explosive pull-ups (chest to bar if possible) → 10 Hindu push-ups → 10 jump squats (full depth) → 30s rest
+- **Work:** 5 explosive pull-ups (chest to bar if possible) → 10 Hindu push-ups → 10 jump squats (full depth) → 30s rest (~6 min per complex)
 - **New:** Yes
 - **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple.
 - **Cues:** Pull-ups: pull fast, clear the bar. Hindu PU: downward dog → swoop chest forward through → cobra → reverse.
@@ -234,7 +235,7 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 
 ---
 
-## Thursday — Upper Pull + Skill Work (~55 min)
+## Thursday — Upper Pull + Skill Work (~65 min)
 
 ### 1. Scapular Pull-Ups
 
@@ -317,17 +318,27 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 - **Visual positions:** Hang → Tuck through → German hang
 - **Video:** https://youtube.com/watch?v=QHnpUcVwZOk
 
-### 7. Rope Skipping Cooldown
+### 7. High-Knee Rope Fartlek
+
+- **Sets × Reps:** 5 × 45s max-effort high knees / 30s easy step (~6 min total)
+- **Rope:** Normal speed rope
+- **HR target:** >160 bpm during work phases
+- **New:** Yes
+- **Why:** Fills the mid-week Fartlek gap. High-knee sprint maximises hip flexor recruitment and VO2 stimulus without the joint load of running. Short intense blocks preserve quality after heavy pulling work.
+- **Cues:** Drive knees to hip height — not shuffling, genuinely high. Max cadence on the sprint phase. Easy single-bounce step on recovery. Reset posture before each sprint.
+- **Progression:** 5 × 45s/30s → 6 × 45s/30s → 5 × 60s/30s → add double-unders on sprint phase.
+
+### 8. Rope Skipping Cooldown
 
 - **Duration:** 5 min, easy pace
 - **Rope:** Normal speed rope
 - **Pace:** Zone 1 — conversational
 - **New:** No
-- **Why:** Active recovery. Brings heart rate down gradually.
+- **Why:** Active recovery after Fartlek. Brings heart rate down gradually.
 - **Cues:** Rhythm focus. Not a workout.
 - **Progression:** Stays easy.
 
-**Day note:** Scapular pull-ups first — always. Face pulls are the most important exercise here for longevity. Your 12 clean pull-ups at 91 kg = solid base for weighted work.
+**Day note:** Scapular pull-ups first — always. Face pulls are the most important exercise here for longevity. High-knee Fartlek fills the Thursday cardio gap — keep the sprint phases genuinely fast. Your 12 clean pull-ups at 91 kg = solid base for weighted work.
 
 ---
 
@@ -373,7 +384,7 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 
 ### 4. Nordic Curl Negative
 
-- **Sets × Reps:** 3 × 5, target 5s descent
+- **Sets × Reps:** 3 × 5, target 5s descent per rep (~4 min total)
 - **Load:** Bodyweight (91 kg)
 - **Descent target:** 5 sec (3 sec is fine to start)
 - **Anchor:** Under loaded barbell, or partner holds ankles
@@ -397,17 +408,16 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 - **Cues:** Full stretch at bottom. Full contraction at top. Off a step for extra range.
 - **Progression:** Double leg → single leg → add weight → off a step.
 
-### 6. Elliptical Intervals
+### 6. 45 Min Elliptical (Fartlek)
 
-- **Sets × Reps:** 8 × 1 min hard / 1 min easy
-- **Resistance (hard):** Level 12–15
-- **Resistance (easy):** Level 5–7
-- **RPM target (hard):** >70
-- **Total time:** 16 min
+- **Sets × Reps:** 45 min continuous
+- **Structure:** Level 22 base OR ladder up/down intervals
+- **Resistance:** Push intensity via levels instead of speed to spike heart rate
+- **Total time:** 45 min
 - **New:** No
-- **Why:** Low-impact conditioning finisher. Spares joints after heavy leg work.
-- **Cues:** Hard intervals: high resistance, fast pace. Easy intervals: active recovery.
-- **Progression:** Hard intervals → 90s. Easy intervals → 45s. Then increase resistance level.
+- **Why:** Low-impact Fartlek-style training. Builds a massive aerobic engine and muscular endurance while completely sparing the joints.
+- **Cues:** Use high resistance (e.g., Level 22) as your base. Climb or drop resistance strategically.
+- **Progression:** Increase your baseline resistance level or extend the duration of the high-intensity rungs of your ladder.
 
 **Day note:** Nordic curls will humble you at 91 kg — that's 91 kg your hamstrings are decelerating. Respect the movement. Bulgarians expose imbalances you didn't know you had.
 
@@ -415,17 +425,17 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 
 ## Saturday — Long Aerobic + Movement Quality (~50–60 min)
 
-### 1. Rope Skipping — Zone 2
+### 1. 1-Hour Rope & Burpee Fartlek
 
-- **Duration:** 30 min continuous
-- **Rope:** Normal speed rope (save heavy rope for interval days)
-- **HR zone:** 130–140 bpm (Zone 2)
-- **Pace:** Conversational — you could hold a full conversation
+- **Duration:** 60 min continuous
+- **Structure:** Rope skipping with 6 sets of 15–20 burpees mixed in
+- **Rope:** Normal speed rope
+- **HR zone:** High variance (Zone 2 recovery, Zone 4/5 burpee spikes)
 - **New:** No
-- **Why:** Aerobic base maintenance. Zone 2 = mitochondrial density improvement = the engine behind VO2max.
-- **Cues:** If you can't talk, slow down. This should feel almost too easy.
-- **Progression:** 30 min → 35 → 40 min. Or alternate 5 min normal / 5 min heavy (1 lb).
-- **Note:** With 1h+ capacity, 30 min Zone 2 will feel easy. That's correct — don't go harder. Zone 2 is about duration, not intensity.
+- **Why:** Advanced Fartlek interval training. Builds incredible stamina and VO2 Max by spiking heart rate with burpees during a long aerobic baseline.
+- **Cues:** Maintain a steady skipping rhythm. During burpee sets, push hard to spike your heart rate, then use the skipping as active recovery.
+- **Progression:** Increase the number of burpees hit per set or the speed of your skipping recovery.
+- **Note:** This takes your 1h+ continuous rope capacity and adds immense anaerobic power spikes throughout.
 
 ### 2. Turkish Get-Up
 
@@ -444,7 +454,7 @@ Format: 3 complexes, 3 rounds each, 2 min rest between complexes.
 
 ### 3. Handstand Wall Hold
 
-- **Sets × Reps:** 3 × 20–30 sec
+- **Sets × Reps:** 3 × 20–30 sec hold (~3 min with rest)
 - **Load:** Bodyweight (91 kg)
 - **Rest:** 60 sec
 - **Fallback:** Pike position with feet on box

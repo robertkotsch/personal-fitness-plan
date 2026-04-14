@@ -2,8 +2,7 @@
  * app.js — UI rendering, event wiring, and PWA installation.
  *
  * Depends on (loaded before this script):
- *
- *   data.js     → DAYS[] training plan
+ *   data.js  → DAYS[] training plan
  */
 
 // ── DOM references ─────────────────────────────────────────────────────────
@@ -17,45 +16,75 @@ const contentEl = document.getElementById('content');
 let todayIdx   = Math.min(new Date().getDay() === 0 ? 6 : new Date().getDay() - 1, 6);
 let currentIdx = todayIdx;
 
-// ── Weights Storage ────────────────────────────────────────────────────────
+// ── Workout Values Storage ─────────────────────────────────────────────────
 
 let workoutWeights = JSON.parse(localStorage.getItem('workoutWeights')) || {};
 
+/**
+ * Parses the leading set count from an rx string.
+ * Matches: "4 × 6", "3 rds", "3 rounds", "3 sets".
+ */
 function getSetsCount(rx) {
-  // Matches patterns like "4 × 6", "4x6", "3 rds", "3 rounds", "3 sets"
   const match = rx.match(/(\d+)\s*([×x]|rds|rounds|sets)\s*/i);
   return match ? parseInt(match[1], 10) : 1;
 }
 
-window.updateWeight = function(dayId, exIdx, setIdx, value) {
+/**
+ * Retrieves the stored value for a given set, falling back to the
+ * exercise's recommended value (from data.js) so inputs are pre-filled.
+ */
+function getStoredValue(key, setIdx, recommended) {
+  const saved = workoutWeights[key];
+  if (saved && saved[setIdx] !== undefined && saved[setIdx] !== '') {
+    return saved[setIdx];
+  }
+  return recommended !== undefined ? recommended : '';
+}
+
+window.stepValue = function(dayId, exIdx, setIdx, delta, recommended) {
   const key = `${dayId}_${exIdx}`;
   if (!workoutWeights[key]) workoutWeights[key] = [];
-  workoutWeights[key][setIdx] = value;
+
+  const current = parseFloat(workoutWeights[key][setIdx] ?? recommended ?? 0);
+  const next    = Math.max(0, Math.round((current + delta) * 100) / 100);
+
+  workoutWeights[key][setIdx] = next;
+  localStorage.setItem('workoutWeights', JSON.stringify(workoutWeights));
+
+  // Update only the display value in the DOM — no full re-render.
+  const display = document.getElementById(`val-${dayId}-${exIdx}-${setIdx}`);
+  if (display) display.textContent = next;
+};
+
+window.updateDirect = function(dayId, exIdx, setIdx, value) {
+  const key = `${dayId}_${exIdx}`;
+  if (!workoutWeights[key]) workoutWeights[key] = [];
+  workoutWeights[key][setIdx] = value === '' ? '' : parseFloat(value) || value;
   localStorage.setItem('workoutWeights', JSON.stringify(workoutWeights));
 };
 
 // ── Rendering ──────────────────────────────────────────────────────────────
 
 const defaultProfile = {
-  age: { label: 'Age', val: 51, unit: '' },
-  weight: { label: 'Weight', val: 91, unit: 'kg' },
-  height: { label: 'Height', val: 1.93, unit: 'm' },
-  vo2max: { label: 'VO2max', val: 50, unit: '' },
-  bench: { label: 'Bench 1RM', val: 107, unit: 'kg' },
-  pullups: { label: 'Pull-ups', val: 12, unit: 'reps' }
+  age:     { label: 'Age',        val: 51,   unit: '' },
+  weight:  { label: 'Weight',     val: 91,   unit: 'kg' },
+  height:  { label: 'Height',     val: 1.93, unit: 'm' },
+  vo2max:  { label: 'VO2max',     val: 50,   unit: '' },
+  bench:   { label: 'Bench 1RM',  val: 107,  unit: 'kg' },
+  pullups: { label: 'Pull-ups',   val: 12,   unit: 'reps' },
 };
 
 let profile = JSON.parse(localStorage.getItem('athleteProfile'));
 if (!profile) {
   profile = JSON.parse(JSON.stringify(defaultProfile));
 } else {
-  for (let key in defaultProfile) {
+  for (const key in defaultProfile) {
     if (profile[key] === undefined) profile[key] = defaultProfile[key];
   }
 }
 
 window.editProfile = function(key) {
-  const item = profile[key];
+  const item  = profile[key];
   const input = prompt(`Enter new value for ${item.label}:`, item.val);
   if (input !== null && input.trim() !== '') {
     item.val = isNaN(Number(input)) ? input : Number(input);
@@ -92,7 +121,102 @@ function renderTabs() {
   tabsEl.innerHTML = daysHtml + profileHtml;
 }
 
-/** Returns the full HTML string for a given day. */
+/**
+ * Builds one stepper tile for a single set.
+ *
+ * Layout:
+ *   SET N
+ *   [−]   VALUE   [+]
+ *     unit · rec: X
+ */
+function renderStepper(day, exIdx, setIdx, ex) {
+  const key     = `${day.id}_${exIdx}`;
+  const rec     = ex.recommended;
+  const step    = ex.step ?? 1;
+  const unit    = ex.unit || '';
+  const val     = getStoredValue(key, setIdx, rec);
+  const displayVal = val !== '' ? val : (rec !== undefined ? rec : '—');
+
+  // Decide label based on unit type
+  const isTime = (unit === 'sec' || unit === 'min');
+  const setLabel = isTime ? `Set ${setIdx + 1}` : `Set ${setIdx + 1}`;
+
+  const recHint = rec !== undefined
+    ? `<div class="stepper-rec">rec: ${rec}${unit ? ' ' + unit : ''}</div>`
+    : '';
+
+  return `
+    <div class="set-stepper">
+      <div class="stepper-label">${setLabel}</div>
+      <div class="stepper-controls">
+        <button class="stepper-btn minus"
+          onclick="stepValue('${day.id}', ${exIdx}, ${setIdx}, ${-step}, ${rec ?? 0})">−</button>
+        <div class="stepper-value">
+          <span class="stepper-num" id="val-${day.id}-${exIdx}-${setIdx}">${displayVal}</span>
+          <span class="stepper-unit">${unit}</span>
+        </div>
+        <button class="stepper-btn plus"
+          onclick="stepValue('${day.id}', ${exIdx}, ${setIdx}, ${step}, ${rec ?? 0})">+</button>
+      </div>
+      ${recHint}
+    </div>`;
+}
+
+/**
+ * Renders a self-contained interval timer panel for the given exercise.
+ * Phase colours and labels change automatically as the timer runs.
+ */
+function renderTimer(ex, dayId, exIdx) {
+  // Use stored overrides if present, otherwise exercise defaults
+  const cfg     = getTimerConfig(dayId, exIdx);
+  const totalMin = Math.ceil(cfg.rounds * (cfg.work + cfg.rest) / 60);
+  const id      = `timer-${dayId}-${exIdx}`;
+
+  // Tiny inline stepper for a single timer parameter
+  const paramStepper = (param, label, val, delta) => `
+    <div class="tcfg-item">
+      <div class="tcfg-label">${label}</div>
+      <div class="tcfg-row">
+        <button class="tcfg-btn"
+          onclick="stepTimerParam('${dayId}', ${exIdx}, '${param}', ${-delta})">&#8722;</button>
+        <span class="tcfg-val" id="tcfg-${param}-${dayId}-${exIdx}">${val}</span>
+        <button class="tcfg-btn"
+          onclick="stepTimerParam('${dayId}', ${exIdx}, '${param}', ${delta})">+</button>
+      </div>
+    </div>`;
+
+  return `
+    <div class="timer-panel" id="${id}" data-phase="idle">
+      <div class="timer-meta">
+        <span class="timer-round">Round 1 / ${cfg.rounds}</span>
+        <span class="timer-total">~${totalMin} min total</span>
+      </div>
+      <div class="timer-phase">${cfg.workLabel || 'WORK'}</div>
+      <div class="timer-count">${timerFmt(cfg.work)}</div>
+      <div class="timer-legend">
+        <span class="legend-work">${cfg.workLabel || 'WORK'} ${cfg.work}s</span>
+        <span class="legend-divider">/</span>
+        <span class="legend-rest">${cfg.restLabel || 'REST'} ${cfg.rest}s</span>
+      </div>
+      <div class="timer-controls">
+        <button class="timer-btn timer-reset-btn"
+          onclick="timerReset('${dayId}', ${exIdx})">↺</button>
+        <button class="timer-btn timer-start-btn"
+          onclick="timerStart('${dayId}', ${exIdx})">▶ Start</button>
+      </div>
+      <div class="timer-config">
+        ${paramStepper('rounds', 'Rounds', cfg.rounds,    1)}
+        <div class="tcfg-divider"></div>
+        ${paramStepper('work',   'Work',   cfg.work + 's', 5)}
+        <div class="tcfg-divider"></div>
+        ${paramStepper('rest',   'Rest',   cfg.rest + 's', 5)}
+      </div>
+    </div>`;
+}
+
+/**
+ * Returns the full HTML string for a given day.
+ */
 function renderDay(day) {
   if (day.isRest) {
     return `<div class="day-view active">
@@ -115,22 +239,28 @@ function renderDay(day) {
 
   const exercises = day.exercises.map((ex, i) => {
     const setsCount = getSetsCount(ex.rx);
-    const key = `${day.id}_${i}`;
-    const weights = workoutWeights[key] || [];
+    const unit      = ex.unit !== undefined ? ex.unit : 'kg';
 
-    const weightInputs = Array.from({ length: setsCount }, (_, s) => {
-      const val = weights[s] || '';
-      return `
-        <div class="set-input-group">
-          <label>Set ${s + 1}</label>
-          <div class="input-with-unit">
-            <input type="number" step="0.5" placeholder="--" 
-                   value="${val}" 
-                   oninput="updateWeight('${day.id}', ${i}, ${s}, this.value)">
-            <span>kg</span>
+    let trackLabel = 'Records';
+    if (unit === 'reps')                    trackLabel = 'Rep Count';
+    else if (unit === 'sec' || unit === 'min') trackLabel = 'Time';
+    else if (unit === 'km' || unit === 'm') trackLabel = 'Distance';
+    else if (unit === 'level')              trackLabel = 'Resistance Level';
+    else if (unit === 'kg')                 trackLabel = 'Weight';
+
+    const steppers = Array.from({ length: setsCount }, (_, s) =>
+      renderStepper(day, i, s, ex)
+    ).join('');
+
+    const trackerHtml = ex.track === false ? '' : `
+        <div class="weight-tracker">
+          <div class="detail-label">${trackLabel}</div>
+          <div class="steppers-row">
+            ${steppers}
           </div>
         </div>`;
-    }).join('');
+
+    const timerHtml = ex.timer ? renderTimer(ex, day.id, i) : '';
 
     return `
     <div class="exercise-card" data-exidx="${i}">
@@ -143,14 +273,8 @@ function renderDay(day) {
         ${ex.n ? '<div class="tag-new">New</div>' : ''}
       </div>
       <div class="exercise-details">
-        <div class="weight-tracker">
-          <div class="detail-label">Weight Records</div>
-          <div class="weight-inputs-scroll">
-            <div class="weight-inputs">
-              ${weightInputs}
-            </div>
-          </div>
-        </div>
+        ${trackerHtml}
+        ${timerHtml}
         <div class="detail-section">
           <div class="detail-label">Why</div>
           <div class="detail-text">${ex.why}</div>
@@ -196,14 +320,13 @@ function showDay(idx) {
   } else {
     contentEl.innerHTML = renderDay(DAYS[idx]);
     contentEl.querySelectorAll('.exercise-card').forEach(card => {
-      // Toggle expansion when clicking the header
       card.querySelector('.exercise-header').addEventListener('click', () =>
         card.classList.toggle('expanded')
       );
-      // Prevent expansion when clicking inputs
-      card.querySelectorAll('input').forEach(input => {
-        input.addEventListener('click', e => e.stopPropagation());
-      });
+      // Stepper + timer buttons must not collapse the card when tapped
+      card.querySelectorAll('.stepper-btn, .timer-btn, .tcfg-btn').forEach(btn =>
+        btn.addEventListener('click', e => e.stopPropagation())
+      );
     });
   }
   contentEl.scrollTop = 0;
@@ -276,4 +399,3 @@ document.getElementById('dismissBtn').addEventListener('click', () =>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
-
