@@ -60,10 +60,10 @@ const DAYS = [
       },
       {
         name: 'Bench Press', rx: '4 × 6 @ RPE 7–8', n: 0,
-        unit: 'kg', recommended: 77.5, step: 2.5,
+        unit: 'kg', recommended: 72.5, step: 2.5,
         why: 'Primary horizontal push. Tempo-controlled for tendon health.',
         cues: '3s eccentric, 1s pause on chest, explode up. Retract shoulder blades. Feet flat.',
-        prog: 'W1: 77.5 kg → W2: 80 kg → W3: 82.5 kg. Add 2.5 kg when all 4 sets hit 6 reps @ RPE 7.',
+        prog: 'W1: 72.5 kg → W2: 75 kg → W3: 77.5 kg. Add 2.5 kg when all 4 sets hit 6 reps @ RPE 7.',
         yt: YT('https://www.youtube.com/watch?v=rT7DgCr-3pg', 'Bench Press Proper Form', 'Jeff Nippard'),
       },
       {
@@ -91,12 +91,13 @@ const DAYS = [
         yt: YT('https://youtube.com/watch?v=ptpmRrzRtWQ', 'The Fastest Way To Blow Up Your Bench Press', 'Jeff Nippard'),
       },
       {
-        name: 'Heavy Rope Finisher', rx: '5 × 40s on / 20s off (~5 min total)', n: 0,
+        name: 'Heavy Rope Finisher', rx: '6 × 60s max sprint / 15s off (~7.5 min total)', n: 0,
         track: false,
-        timer: { rounds: 5, work: 40, rest: 20, workLabel: 'SPRINT', restLabel: 'REST' },
-        why: 'Standard 30/30 too easy for 1h+ rope endurance. Shortened rest creates real challenge.',
+        timer: { rounds: 6, work: 60, rest: 15, workLabel: 'SPRINT', restLabel: 'REST' },
+        why: '40s/20s is too easy for 6k+ rope endurance. Lengthened sprint and shortened rest creates real lactic challenge.',
         cues: 'Max consistent rhythm each interval. Double-unders if available.',
-        prog: '5×40s/20s → 5×50s/10s → 6×40s/20s.',
+        prog: '6×60s/15s → 6×75s/15s → 8×60s/15s.',
+        yt: YT('https://www.youtube.com/watch?v=OwxPc_ziQzo', 'Heavy Jump Rope Form', 'Crossrope'),
       },
     ],
   },
@@ -121,6 +122,7 @@ const DAYS = [
         why: 'Active recovery. Mobilizes shoulders.',
         cues: 'Slow and controlled.',
         prog: 'Use 24 kg when easy.',
+        yt: YT('https://youtube.com/watch?v=13SFATc-mJ4', 'How to perform the Kettlebell Halo', 'Coach Gabe West'),
       },
       {
         name: 'Dead Hang', rx: '3 × 45 sec (~4 min with rest)', n: 1,
@@ -165,12 +167,13 @@ const DAYS = [
     notes: 'Quality over volume. Form breaks = stop. 3 complexes × 3 rounds. 2 min rest between complexes.',
     exercises: [
       {
-        name: 'Complex A: Rope & Burpee', rx: '3 rds: 45s rope → 6 burpees → 15s rest (~4 min)', n: 0,
+        name: 'Complex A: Rope (2 lb) & Burpee', rx: '4 rds: 40s 2lb rope → 10 burpees → 20s rest (~6-7 min)', n: 1,
         track: false,
-        timer: { rounds: 3, work: 45, rest: 15, workLabel: 'ROPE', restLabel: 'BURPEES' },
-        why: 'Full-body conditioning. Intervals pushed harder — 1h+ rope endurance makes standard 30/30 too easy.',
-        cues: 'Stay smooth on rope after burpee fatigue.',
+        timer: { rounds: 4, work: 40, rest: 20, workLabel: 'ROPE', restLabel: 'BURPEES' },
+        why: 'Shifts stimulus from endurance to massive upper-body/lat pre-exhaustion before burpees.',
+        cues: 'Keep wrists strong. Drive rotation from lats. Don\'t let 2lb rope pull you out of posture.',
         prog: '+5s rope per round. Then +2 burpees.',
+        yt: YT('https://www.youtube.com/watch?v=TUdZq_2bXyU', 'How To Do A Burpee', 'CrossFit'),
       },
       {
         name: 'Complex B: KB Circuit', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause) (~5–6 min)', n: 1,
@@ -227,6 +230,7 @@ const DAYS = [
         why: 'Bicep strength supports all pulling and protects elbow joints.',
         cues: 'Straight or EZ bar, 30 kg. Full range. No swinging — if momentum needed, weight is too heavy.',
         prog: 'Alternate barbell / dumbbell (14 kg each) / hammer curls across weeks.',
+        yt: YT('https://www.youtube.com/watch?v=ykJmrZ5v0Oo', 'How To Bicep Curl', 'Jeff Nippard'),
       },
       {
         name: 'Face Pulls', rx: '3 × 15', n: 1,
@@ -245,14 +249,14 @@ const DAYS = [
         yt: YT('https://youtube.com/watch?v=QHnpUcVwZOk', 'How to Skin the Cat', 'The Movement Collective'),
       },
       {
-        name: 'High-Knee Rope Fartlek', rx: '5 × 45s max-effort high knees / 30s easy step (~6 min total)', n: 1,
+        name: 'High-Knee Rope Fartlek', rx: '6 × 60s max-effort high knees / 30s easy step (~9 min total)', n: 1,
         track: false,
-        timer: { rounds: 5, work: 45, rest: 30, workLabel: 'HIGH KNEES', restLabel: 'EASY STEP' },
+        timer: { rounds: 6, work: 60, rest: 30, workLabel: 'HIGH KNEES', restLabel: 'EASY STEP' },
         why: 'Fills the mid-week Fartlek gap. High-knee sprint maximises hip flexor recruitment and VO2 stimulus '
            + 'without the joint load of running. Short blocks keep quality high after heavy pulling.',
         cues: 'Drive knees to hip height — not shuffling, genuinely high. Max cadence on the sprint phase. '
             + 'Easy single-bounce step on recovery. Reset posture before each sprint.',
-        prog: '5 × 45s/30s → 6 × 45s/30s → 5 × 60s/30s → add double-unders on sprint phase.',
+        prog: '6 × 60s/30s → 8 × 60s/30s → add double-unders on sprint phase.',
         yt: YT('https://www.youtube.com/watch?v=FS6TsXFPGSM', 'Jump Rope High Knees — Benefits & Form', 'Jump Rope Dudes'),
       },
       {
@@ -261,6 +265,7 @@ const DAYS = [
         why: 'Active recovery. Brings heart rate down gradually.',
         cues: 'Zone 1 — conversational pace. Rhythm focus. Not a workout.',
         prog: 'Stays easy.',
+        yt: YT('https://www.youtube.com/watch?v=FJmRQ5iZXxg', 'Jump Rope Basics For Beginners', 'Jump Rope Dudes'),
       },
     ],
   },
@@ -309,6 +314,7 @@ const DAYS = [
         why: 'Calf + Achilles tendon health. Slow tempo loads tendon properly.',
         cues: 'Full stretch at bottom (2s). Full contraction at top (2s hold). Off a step for extra range.',
         prog: 'Double leg → single leg → add weight → off a step.',
+        yt: YT('https://www.youtube.com/watch?v=-M4-G8p8fmc', 'How To Build Calves', 'Jeff Nippard'),
       },
       {
         name: '45 Min Elliptical', rx: '45 min continuous: Level 22 base OR ladder up/down', n: 0,
@@ -316,6 +322,7 @@ const DAYS = [
         why: 'Low-impact Fartlek-style training. Builds aerobic engine while sparing joints.',
         cues: 'Use Level 22 as your base. Climb or drop resistance strategically to spike heart rate.',
         prog: 'Increase baseline resistance level or extend duration of high-intensity rungs.',
+        yt: YT('https://www.youtube.com/watch?v=A_0uY-eF52g', 'How To Use An Elliptical', 'Planet Fitness'),
       },
     ],
   },
@@ -326,11 +333,12 @@ const DAYS = [
     notes: 'Zone 2 HR: 130–140 bpm. Resist the urge to push intensity. This is aerobic maintenance + skill day.',
     exercises: [
       {
-        name: '1-Hour Rope & Burpee Fartlek', rx: '60 min skipping: 6 sets of 15–20 burpees', n: 0,
+        name: '1-Hour Rope & Burpee Fartlek', rx: '60 min skipping: 8 sets of 20 burpees (alternate heavy/normal rope blks)', n: 0,
         unit: 'reps', recommended: 15, step: 1,
         why: 'Advanced Fartlek. Builds stamina + VO2 max by spiking heart rate with burpees during aerobic baseline.',
         cues: 'Maintain steady skipping rhythm. Push hard during burpee sets to spike HR, then use skipping as active recovery.',
         prog: 'Increase burpees per set or speed of skipping recovery.',
+        yt: YT('https://www.youtube.com/watch?v=TUdZq_2bXyU', 'How To Do A Burpee', 'CrossFit'),
       },
       {
         name: 'Turkish Get-Up', rx: '3 × 2 each side', n: 1,

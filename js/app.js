@@ -70,7 +70,7 @@ const defaultProfile = {
   weight:  { label: 'Weight',     val: 91,   unit: 'kg' },
   height:  { label: 'Height',     val: 1.93, unit: 'm' },
   vo2max:  { label: 'VO2max',     val: 50,   unit: '' },
-  bench:   { label: 'Bench 1RM',  val: 107,  unit: 'kg' },
+  bench:   { label: 'Bench 1RM',  val: 100,  unit: 'kg' },
   pullups: { label: 'Pull-ups',   val: 12,   unit: 'reps' },
 };
 
