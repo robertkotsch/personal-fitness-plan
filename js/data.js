@@ -149,7 +149,7 @@ const DAYS = [
         why: 'Shifts stimulus from endurance to massive upper-body/lat pre-exhaustion before burpees.',
         cues: 'Keep wrists strong. Drive rotation from lats. Don\'t let 2lb rope pull you out of posture.',
         prog: '+5s rope per round. Then +2 burpees.',
-        yt: YT('https://www.youtube.com/watch?v=y9WO4G9sxtI', 'Heavy Rope Form', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8FzM', 'The Burpee', 'CrossFit'),
+        yt: YT('https://www.youtube.com/watch?v=y9WO4G9sxtI', 'Heavy Rope Form', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8Fww', 'The Burpee', 'CrossFit'),
       },
       {
         name: 'Complex B: KB Circuit', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause)', n: 1,
@@ -165,7 +165,7 @@ const DAYS = [
         why: 'Explosive upper body and lower body power conditioning. Hindu push-ups combine shoulder mobility with pressing.',
         cues: 'Pull-ups: pull fast, clear the bar. Hindu PU: down dog → swoop chest through → cobra → reverse.',
         prog: 'Pull-ups → chest-to-bar → muscle-up negatives. Hindu PU: slow swoop to 3s.',
-        yt: YT('https://www.youtube.com/watch?v=S8X_82v020w', 'Explosive Pull-Ups', 'FitnessFAQs') + YT('https://www.youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups', 'Aleks Salkin') + YT('https://www.youtube.com/watch?v=J-VBMpA_j8Y', 'Jumping Squats', 'CrossFit'),
+        yt: YT('https://www.youtube.com/watch?v=72t8p_xq7lo', '3 BEST Exercises for EXPLOSIVE PULL-UPS', 'FitnessFAQs') + YT('https://www.youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups', 'Aleks Salkin') + YT('https://www.youtube.com/watch?v=mnbG9lKTYMo', 'Jumping Squats', 'CrossFit'),
       },
       {
         name: 'Hanging Knee Raises', rx: '3 × 10, controlled', n: 1,
@@ -476,7 +476,7 @@ const DAYS = [
         why: 'Advanced Fartlek. Builds stamina + VO2 max by spiking heart rate with burpees during aerobic baseline.',
         cues: 'Alternate heavy/normal rope. Push hard during burpee sets to spike HR, then use skipping as active recovery.',
         prog: 'Increase burpees per set or speed of skipping recovery.',
-        yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Heavy Rope Skipping', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8FzM', 'The Burpee', 'CrossFit'),
+        yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Heavy Rope Skipping', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8Fww', 'The Burpee', 'CrossFit'),
       },
       {
         name: 'Turkish Get-Up', rx: '3 × 2 each side', n: 1,

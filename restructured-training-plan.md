@@ -66,7 +66,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 #### Complex A: Rope & Burpee
 
-- 4 rounds: 40s power rope skip (2 lb heavy) [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=auBLPXO8FzM) → 20s rest
+- 4 rounds: 40s power rope skip (2 lb heavy) [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=auBLPXO8Fww) → 20s rest
 - **Why:** Shifts stimulus from pure cardio endurance to massive upper-body/lat pre-exhaustion before hitting the burpees.
 
 #### Complex B: Kettlebell Circuit
@@ -78,7 +78,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 #### Complex C: Bodyweight Power
 
-- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=S8X_82v020w) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats [🎥 Video Tutorial](https://www.youtube.com/watch?v=J-VBMpA_j8Y) → 30s rest
+- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=72t8p_xq7lo) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats [🎥 Video Tutorial](https://www.youtube.com/watch?v=mnbG9lKTYMo) → 30s rest
 - **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple. Explosive pull-ups maintain power output.
 
 ### Core Circuit (~8 min)
