@@ -26,7 +26,10 @@ function YT(url, title, channel) {
   let videoId = '';
   if (url.includes('v=')) {
     videoId = url.split('v=')[1].split('&')[0];
+  } else if (url.includes('youtu.be/')) {
+    videoId = url.split('youtu.be/')[1].split('?')[0];
   }
+  
   if (!videoId) return '';
 
   return `<div class="video-wrapper">
@@ -45,11 +48,18 @@ function YT(url, title, channel) {
 const DAYS = [
   {
     id: 'mon', tab: 'Mon', name: 'Monday',
-    focus: 'Upper Push + Power', duration: '~55 min',
-    notes: 'Tempo: 3s eccentric on bench, 1s pause on chest, explode up. '
-         + 'W1: 77.5 kg · W2: 80 kg · W3: 82.5 kg. '
-         + 'Plyo push-ups: stay low-rep — power, not fatigue.',
+    focus: 'Upper Push + Power', duration: '~78 min',
+    notes: 'Warm-up before explosive work. Added 18 min Zone 2 conditioning after the rope finisher to build aerobic base without adding training stress. '
+         + 'Tempo (Bench): 3s eccentric, 1s pause, explode up.',
     exercises: [
+      {
+        name: 'Easy Rope Skipping (Warm-Up)', rx: '5 min, Zone 1, conversational pace', n: 1,
+        track: false,
+        why: 'Cold-starting plyo push-ups at 91 kg and 51 years old is asking for trouble. Gets blood into shoulders, wrists, and pecs before loading.',
+        cues: 'Nice, easy rhythm to loosen up.',
+        prog: 'Keep it conversational.',
+        yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Jump Rope Basics For Beginners', 'Jump Rope Dudes'),
+      },
       {
         name: 'Kettlebell Halo', rx: '2 × 12 each direction', n: 0,
         track: false,
@@ -64,7 +74,7 @@ const DAYS = [
         why: 'Primary horizontal push. Tempo-controlled for tendon health.',
         cues: '3s eccentric, 1s pause on chest, explode up. Retract shoulder blades. Feet flat.',
         prog: 'W1: 72.5 kg → W2: 75 kg → W3: 77.5 kg. Add 2.5 kg when all 4 sets hit 6 reps @ RPE 7.',
-        yt: YT('https://www.youtube.com/watch?v=rT7DgCr-3pg', 'Bench Press Proper Form', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=vcBig73ojpE', 'Bench Press Proper Form', 'Jeff Nippard'),
       },
       {
         name: 'Plyometric Push-Ups', rx: '3 × 5', n: 1,
@@ -99,16 +109,41 @@ const DAYS = [
         prog: '6×60s/15s → 6×75s/15s → 8×60s/15s.',
         yt: YT('https://www.youtube.com/watch?v=OwxPc_ziQzo', 'Heavy Jump Rope Form', 'Crossrope'),
       },
+      {
+        name: 'Zone 2 Cooldown', rx: '18 min easy rope skipping or assault bike', n: 1,
+        track: false,
+        why: 'Post-lactic Zone 2 work is one of the most efficient ways to build aerobic base. Capitalizes on elevated HR.',
+        cues: 'Easy enough to hold a conversation. HR 130–140 bpm. Single bounce if rope, steady cadence if bike.',
+        prog: 'Extend to 20 min, then 25 min if time allows.',
+        yt: '',
+      },
     ],
   },
 
   {
     id: 'tue', tab: 'Tue', name: 'Tuesday',
-    focus: 'HIIT Complexes', duration: '~40 min',
-    notes: 'Moved from Wednesday. 48h recovery before Thursday\'s heavy pull day. Format: 3 complexes, 3 rounds each, 2 min rest between complexes.',
+    focus: 'HIIT Complexes + Core', duration: '~81 min',
+    notes: 'Expanded session. Now includes proper on-ramp, core circuit, steady-state rowing, and cooldown. '
+         + 'Format: 3 complexes, 3-4 rounds each, 2 min rest between complexes.',
     exercises: [
       {
-        name: 'Complex A: Rope (2 lb) & Burpee', rx: '4 rds: 40s 2lb rope → 10 burpees → 20s rest (~6-7 min)', n: 1,
+        name: 'KB Halo (Warm-Up)', rx: '2 × 8 each direction', n: 0,
+        track: false,
+        why: 'Prepare shoulders before heavy pulling/swinging.',
+        cues: 'Keep elbows tight. Circle close to head. Engage core.',
+        prog: 'Controlled movement.',
+        yt: YT('https://youtube.com/watch?v=13SFATc-mJ4', 'How to perform the Kettlebell Halo', 'Coach Gabe West'),
+      },
+      {
+        name: 'Easy Rope Skipping (Warm-Up)', rx: '5 min, Zone 1, conversational pace', n: 1,
+        track: false,
+        why: 'Warming up shoulders, wrists, and ankles before explosive jumps and power rope is non-negotiable.',
+        cues: 'Nice, easy rhythm to loosen up.',
+        prog: 'Keep it conversational.',
+        yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Jump Rope Basics For Beginners', 'Jump Rope Dudes'),
+      },
+      {
+        name: 'Complex A: Rope (2 lb) & Burpee', rx: '4 rds: 40s power rope → 10 burpees → 20s rest', n: 1,
         track: false,
         timer: { rounds: 4, work: 40, rest: 20, workLabel: 'ROPE', restLabel: 'BURPEES' },
         why: 'Shifts stimulus from endurance to massive upper-body/lat pre-exhaustion before burpees.',
@@ -117,7 +152,7 @@ const DAYS = [
         yt: YT('https://www.youtube.com/watch?v=TUdZq_2bXyU', 'How To Do A Burpee', 'CrossFit'),
       },
       {
-        name: 'Complex B: KB Circuit', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause) (~5–6 min)', n: 1,
+        name: 'Complex B: KB Circuit', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause)', n: 1,
         unit: 'kg', recommended: 20, step: 4,
         why: 'Clean & press = full-body power. The goblet squats serve double duty as a second weekly lower-body touchpoint.',
         cues: 'Clean: rack bell smoothly. Press: full lockout. Swings: snap hips. Squats: Emphasize depth and pause.',
@@ -125,28 +160,61 @@ const DAYS = [
         yt: YT('https://youtube.com/watch?v=eaQPi0LDoE0', 'Learn in 1 minute - KB Clean & Press', 'Mark Wildman'),
       },
       {
-        name: 'Complex C: Bodyweight Power', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats (~6 min)', n: 1,
+        name: 'Complex C: Bodyweight Power', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats', n: 1,
         track: false,
         why: 'Explosive upper body and lower body power conditioning. Hindu push-ups combine shoulder mobility with pressing.',
         cues: 'Pull-ups: pull fast, clear the bar. Hindu PU: down dog → swoop chest through → cobra → reverse.',
         prog: 'Pull-ups → chest-to-bar → muscle-up negatives. Hindu PU: slow swoop to 3s.',
         yt: YT('https://youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups: A Brief How-To Guide', 'Aleks Salkin'),
       },
+      {
+        name: 'Hanging Knee Raises', rx: '3 × 10, controlled', n: 1,
+        unit: 'reps', recommended: 10, step: 1,
+        why: 'Dynamic core flexion complements Wednesday\'s anti-movement core work. Decompresses spine.',
+        cues: 'Knees to chest, 1s hold at top, 2s lower. No swinging.',
+        prog: 'Knee raises → straight leg raises → toes to bar.',
+        yt: '',
+      },
+      {
+        name: 'Hollow Body Hold', rx: '3 × 20s hold', n: 1,
+        unit: 'sec', recommended: 20, step: 5,
+        timer: { rounds: 3, work: 20, rest: 40, workLabel: 'HOLD', restLabel: 'REST' },
+        why: 'Full-body anterior chain tension. Transfers to handstand holds, L-sits, and ring work.',
+        cues: 'Lower back pressed into floor. Arms overhead, legs extended, toes pointed. Bend knees if too hard.',
+        prog: '20s → 30s → 40s → add light ankle weights.',
+        yt: '',
+      },
+      {
+        name: 'Steady-State Rowing', rx: '20 min, Zone 2, ~2:05–2:10/500m pace', n: 1,
+        unit: 'min', recommended: 20, step: 1,
+        why: 'Post-HIIT aerobic work is excellent for recovery and aerobic development. HR is already elevated.',
+        cues: 'Long strokes, controlled breathing. This is NOT another interval — keep it conversational.',
+        prog: 'Track total distance. Aim to hold a consistent pace throughout.',
+        yt: '',
+      },
+      {
+        name: 'Easy Rope Skipping (Cooldown)', rx: '5 min, Zone 1', n: 1,
+        track: false,
+        why: 'Gradual HR reduction. Active recovery for wrists and shoulders after heavy rope complex.',
+        cues: 'Active recovery pace.',
+        prog: '-',
+        yt: '',
+      },
     ],
   },
 
   {
     id: 'wed', tab: 'Wed', name: 'Wednesday',
-    focus: 'Rowing Engine + Core & Mobility', duration: '~50 min',
-    notes: 'Moved from Tuesday. Now acts as a buffer between Tuesday\'s HIIT pulling and Thursday\'s heavy pulling. '
-         + 'Fartlek rowing: 1 min max sprint every 5 min. Target 7,000 m over 30 min. Mobility is non-negotiable.',
+    focus: 'Rowing Engine + Core & Mobility', duration: '~81 min',
+    notes: 'Extended day. Heavy loaded carries and targeted mobility. Remains recovery-biased — nothing explosive, nothing heavy overhead. '
+         + 'Fartlek rowing: 1 min max sprint every 5 min (8 sprints total). Damper 5–6.',
     exercises: [
       {
-        name: '30 Min Rowing Fartlek', rx: '30 min continuous: 1 min max sprint every 5 min', n: 0,
-        unit: 'km', recommended: 7, step: 0.1,
-        why: 'Builds VO2 max during sprints, aerobic base during recovery.',
+        name: '40 Min Rowing Fartlek', rx: '40 min continuous: 1 min max sprint every 5 min', n: 0,
+        unit: 'km', recommended: 9, step: 0.1,
+        why: 'VO2max level sustainable aerobic base-building volume. New target is ~9,000m.',
         cues: 'Hit true max power for 1 minute. Slow down but stay in motion for 4-minute active recovery.',
-        prog: 'Increase your total distance logged over the full 30 minutes. 7 km is an elite benchmark at 91 kg / 1.93 m.',
+        prog: 'Increase your total distance logged over the full 40 minutes.',
         yt: YT('https://www.youtube.com/watch?v=zQ82RYIFLN8', '500m Row Intervals', 'Dark Horse Rowing'),
       },
       {
@@ -156,6 +224,14 @@ const DAYS = [
         cues: 'Slow and controlled.',
         prog: 'Use 24 kg when easy.',
         yt: YT('https://youtube.com/watch?v=13SFATc-mJ4', 'How to perform the Kettlebell Halo', 'Coach Gabe West'),
+      },
+      {
+        name: 'Farmer\'s Walk', rx: '3 × 40m, 60s rest', n: 1,
+        unit: 'kg', recommended: 24, step: 4,
+        why: 'Low-CNS loaded carry that trains grip, core stability, and posture. Perfect for buffer day.',
+        cues: 'Shoulders packed down and back. Walk straight. Don\'t let KBs touch thighs. Breathe.',
+        prog: '2×24 kg → 2×28 kg → 2×32 kg. Then extend distance to 60m.',
+        yt: YT('https://www.youtube.com/watch?v=FvdO-nzjAFA', 'Farmer\'s Walk Form', 'Jeff Nippard'),
       },
       {
         name: 'Dead Hang', rx: '3 × 45 sec (~4 min with rest)', n: 1,
@@ -184,6 +260,23 @@ const DAYS = [
         yt: YT('https://www.youtube.com/watch?v=AH_QZLm_0-s', 'Pallof Press — Best Core Exercise', 'ATHLEAN-X'),
       },
       {
+        name: 'Copenhagen Plank', rx: '2 × 20s each side, 45s rest', n: 1,
+        unit: 'sec', recommended: 20, step: 5,
+        timer: { rounds: 2, work: 20, rest: 45, workLabel: 'HOLD', restLabel: 'REST' },
+        why: 'Adductors stabilize the knee during single-leg movements. Isometric prehab.',
+        cues: 'Side plank, top leg on bench, bottom leg pulls up to meet bench. If too hard: bend knee on bench.',
+        prog: '20s → 30s → 40s. Then straight-leg version if starting bent-knee.',
+        yt: YT('https://youtube.com/watch?v=S3742-WICz8', 'Copenhagen Plank Tutorial', 'Squat University'),
+      },
+      {
+        name: 'Shoulder Dislocates', rx: '2 × 15, band or dowel', n: 1,
+        unit: 'reps', recommended: 15, step: 1,
+        why: 'Prepares shoulders for Thursday\'s heavy pulling. Increases overhead mobility gradually.',
+        cues: 'Wide grip. Slow controlled arc front to back. Narrow grip progressively.',
+        prog: 'Narrow grip width over weeks.',
+        yt: '',
+      },
+      {
         name: '90/90 Hip Stretch', rx: '2 min each side', n: 1,
         track: false,
         why: 'Hip mobility degrades silently after 40. Best stretch for rotation.',
@@ -191,15 +284,38 @@ const DAYS = [
         prog: 'Add rotation. Forward fold over front shin.',
         yt: YT('https://youtube.com/watch?v=BNWLBuohUGQ', 'Top 3 Hip Mobility Openers', 'Squat University'),
       },
+      {
+        name: 'Extended Mobility', rx: '10 min foam rolling or lacrosse ball', n: 1,
+        track: false,
+        why: 'Focus areas: Lats, T-spine, quads/hip flexors. Use the one session where you have time/low fatigue.',
+        cues: 'Breathe into tight spots.',
+        prog: 'Explore new areas as needed.',
+        yt: '',
+      },
     ],
   },
 
   {
     id: 'thu', tab: 'Thu', name: 'Thursday',
-    focus: 'Upper Pull + Skill', duration: '~60 min',
-    notes: 'Skin the cat moved to pos. 3 when fresh. Cable row added for missing horizontal pull. '
-         + 'Rope Fartlek and cooldown merged into one block.',
+    focus: 'Upper Pull + Skill', duration: '~74 min',
+    notes: 'Proper warm-up added. Dense high-quality pulling volume. Decompression and targeted stretched added to close the session.',
     exercises: [
+      {
+        name: 'Easy Rope Skipping (Warm-Up)', rx: '5 min, Zone 1', n: 1,
+        track: false,
+        why: 'General blood flow before heavy pulling.',
+        cues: '-',
+        prog: '-',
+        yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Jump Rope Basics', 'Jump Rope Dudes'),
+      },
+      {
+        name: 'Band Pull-Aparts', rx: '2 × 15, light band', n: 1,
+        unit: 'reps', recommended: 15, step: 1,
+        why: 'Activates rear delts and external rotators. Wakes up the retraction pattern.',
+        cues: 'Straight arms, pull band to sternum.',
+        prog: 'Thicker band or more reps.',
+        yt: '',
+      },
       {
         name: 'Scapular Pull-Ups', rx: '2 × 10', n: 1,
         unit: 'reps', recommended: 10, step: 1,
@@ -219,7 +335,7 @@ const DAYS = [
       {
         name: 'Skin the Cat', rx: '3 × 3, as slow as possible', n: 1,
         unit: 'reps', recommended: 3, step: 1,
-        why: 'Bulletproof shoulders through full ROM. Moved up so grip is fresh and fatigue is low. High-injury-risk movement at 91 kg.',
+        why: 'Bulletproof shoulders through full ROM. Performed when fresh.',
         cues: 'Tuck knees, rotate backward. Start with first half only (to German hang). Only go as far as comfortable. SLOW.',
         prog: 'Tuck → straight legs → pause in German hang 5s → full rotation.',
         yt: YT('https://youtube.com/watch?v=QHnpUcVwZOk', 'How to Skin the Cat', 'The Movement Collective'),
@@ -246,7 +362,7 @@ const DAYS = [
         why: 'Bicep strength supports all pulling and protects elbow joints.',
         cues: 'Straight or EZ bar, 30 kg. Full range. No swinging — if momentum needed, weight is too heavy.',
         prog: 'Alternate barbell / dumbbell (14 kg each) / hammer curls across weeks.',
-        yt: YT('https://www.youtube.com/watch?v=ykJmrZ5v0Oo', 'How To Bicep Curl', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=i1YgFZB6alI', 'How To Bicep Curl', 'Jeff Nippard'),
       },
       {
         name: 'Face Pulls', rx: '3 × 15', n: 1,
@@ -254,24 +370,41 @@ const DAYS = [
         why: 'Rear delts + external rotators. #1 exercise for shoulder longevity that most people skip.',
         cues: 'Rope at face height (~170 cm). Pull rope to ears, externally rotate — thumbs point backward. Squeeze 2s hold at peak contraction.',
         prog: '+2.5 kg when 15 reps with 2s hold feel easy. Start lighter than ego says.',
-        yt: YT('https://www.youtube.com/watch?v=rep-qVOkqgk', 'Face Pulls Done Right', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=qfc70k40318', 'Face Pulls Done Right', 'Jeff Nippard'),
       },
       {
-        name: 'High-Knee Rope Fartlek + Cooldown', rx: '6 × 60s sprint / 30s step + 3m easy (~12m)', n: 1,
+        name: 'Dead Hang (Decompression)', rx: '2 × 30s, passive', n: 1,
+        unit: 'sec', recommended: 30, step: 5,
+        timer: { rounds: 2, work: 30, rest: 30, workLabel: 'HANG', restLabel: 'REST' },
+        why: 'Spine decompression after heavy weighted pull-ups and cable rows. Not a training stimulus.',
+        cues: 'Relax completely into the stretch.',
+        prog: '-',
+        yt: '',
+      },
+      {
+        name: 'High-Knee Rope Fartlek + Cooldown', rx: '8 × 60s sprint / 30s step + 5 min easy (~17 min total)', n: 1,
         track: false,
-        timer: { rounds: 6, work: 60, rest: 30, workLabel: 'HIGH KNEES', restLabel: 'EASY STEP' },
-        why: 'Merged the separate 5-min cooldown into this block. Same training effect, one fewer "exercise" mentally.',
-        cues: 'Drive knees to hip height. Max cadence on the sprint phase. 3 min easy skipping to finish.',
-        prog: '6 × 60s/30s → 8 × 60s/30s → add double-unders on sprint phase.',
-        yt: YT('https://www.youtube.com/watch?v=FS6TsXFPGSM', 'Jump Rope High Knees — Benefits & Form', 'Jump Rope Dudes'),
+        timer: { rounds: 8, work: 60, rest: 30, workLabel: 'HIGH KNEES', restLabel: 'EASY STEP' },
+        why: 'More conditioning volume without complexity.',
+        cues: 'Drive knees to hip height. Max cadence on the sprint phase. 5 min easy skipping to finish.',
+        prog: 'Add double-unders on sprint phase.',
+        yt: YT('https://www.youtube.com/watch?v=xcIfssjP-u8', 'Jump Rope High Knees — Benefits & Form', 'Jump Rope Dudes'),
+      },
+      {
+        name: 'Shoulder Stretching', rx: 'Cross-body, Pec, Overhead', n: 1,
+        track: false,
+        why: 'After heavy pulling, shoulders and lats are shortened. 5 min of targeted stretching returns tissue to resting length.',
+        cues: '30s each position, each side.',
+        prog: '-',
+        yt: '',
       },
     ],
   },
 
   {
     id: 'fri', tab: 'Fri', name: 'Friday',
-    focus: 'Lower Body + Conditioning', duration: '~55 min',
-    notes: 'Single-leg RDL added after Bulgarians to address the hamstring gap. Nordics are eccentric-only at your stage.',
+    focus: 'Lower Body + Conditioning', duration: '~90 min',
+    notes: 'Single-leg RDL added after Bulgarians addresses the hamstring gap. Nordics are eccentric-only at your stage.',
     exercises: [
       {
         name: 'KB Goblet Squat', rx: '4 × 10, 3s pause at bottom', n: 0,
@@ -279,7 +412,7 @@ const DAYS = [
         why: 'Builds squat depth and strength. Pause eliminates stretch reflex and forces honest reps.',
         cues: 'KB at chest. Elbows inside knees at bottom. 3s pause in the hole. Drive up through heels.',
         prog: '24 kg × 10 pause → 24 kg × 12 pause → double KB front squat.',
-        yt: YT('https://www.youtube.com/watch?v=MeIiIdhvXT4', 'Goblet Squat Form', 'Squat University'),
+        yt: YT('https://www.youtube.com/watch?v=lRYBbchqxtI', 'Goblet Squat Form', 'Squat University'),
       },
       {
         name: 'Bulgarian Split Squat', rx: '3 × 8 each leg', n: 1,
@@ -287,7 +420,7 @@ const DAYS = [
         why: 'Single-leg strength builder. Exposes and fixes imbalances. More knee-friendly than heavy barbell squats for 45+.',
         cues: 'Rear foot on bench, shoelaces down. Front shin roughly vertical. 2 × 14 kg dumbbells.',
         prog: 'BW → 2×14 kg DB → 2×18 kg DB → 2×22 kg DB → add deficit (front foot elevated).',
-        yt: YT('https://www.youtube.com/watch?v=2C-uNgKwPLE', 'Bulgarian Split Squat', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=kU8O3yqE-O8', 'Bulgarian Split Squat', 'Jeff Nippard'),
       },
       {
         name: 'Single-Leg Romanian Deadlift', rx: '3 × 8 each leg', n: 1,
@@ -303,7 +436,7 @@ const DAYS = [
         why: 'Posterior chain power. Hip hinge builds glutes and hamstrings explosively.',
         cues: 'Swing to eye level. Snap hips — arms just along for the ride. Squeeze glutes at top.',
         prog: '24 kg × 15 → 24 kg × 20 → single-arm 20 kg.',
-        yt: YT('https://www.youtube.com/watch?v=YSxHifyI6s8', 'KB Swing Mistakes', 'Mark Wildman'),
+        yt: YT('https://www.youtube.com/watch?v=K83RM7H9WrY', 'KB Swing Mistakes', 'Mark Wildman'),
       },
       {
         name: 'Nordic Curl Negative', rx: '3 × 5, target 5s descent per rep', n: 1,
@@ -319,7 +452,7 @@ const DAYS = [
         why: 'Calf + Achilles tendon health. Slow tempo loads tendon properly.',
         cues: 'Full stretch at bottom (2s). Full contraction at top (2s hold). Off a step for extra range.',
         prog: 'Double leg → single leg → add weight → off a step.',
-        yt: YT('https://www.youtube.com/watch?v=-M4-G8p8fmc', 'How To Build Calves', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=-qsRtp_PbVM', 'How To Build Calves', 'Jeff Nippard'),
       },
       {
         name: '45 Min Elliptical Fartlek', rx: 'Level 22 base, ladder intervals', n: 0,
@@ -327,15 +460,15 @@ const DAYS = [
         why: 'Low-impact Fartlek-style training. Builds aerobic engine while sparing joints.',
         cues: 'Use Level 22 as your base. Climb or drop resistance strategically to spike heart rate.',
         prog: 'Increase baseline resistance level or extend duration of high-intensity rungs.',
-        yt: YT('https://www.youtube.com/watch?v=A_0uY-eF52g', 'How To Use An Elliptical', 'Planet Fitness'),
+        yt: YT('https://www.youtube.com/watch?v=sHMemwz_HPU', 'How To Use An Elliptical', 'Planet Fitness'),
       },
     ],
   },
 
   {
     id: 'sat', tab: 'Sat', name: 'Saturday',
-    focus: 'Long Conditioning + Mobility', duration: '~60 min',
-    notes: 'Block A: Conditioning (40-45 min). Block B: Skill & Mobility (15-20 min). If Block A wipes you out, do Block B first or move it to Sunday.',
+    focus: 'Long Conditioning + Mobility', duration: '~80 min',
+    notes: 'Block A: Conditioning (~60 min). Block B: Skill & Mobility (15-20 min). If Block A wipes you out, do Block B first or move it to Sunday.',
     exercises: [
       {
         name: '1-Hour Rope & Burpee Fartlek', rx: '60 min continuous: 8x20 burpees mixed in', n: 0,
