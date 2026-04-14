@@ -83,7 +83,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 ### Core Circuit (~8 min)
 
-3. **Hanging Knee Raises** [🎥 Video Tutorial](https://www.youtube.com/watch?v=VPxUQiH-kU) — 3×10, controlled (no kipping)
+3. **Hanging Knee Raises** [🎥 Video Tutorial](https://www.youtube.com/watch?v=7b7y65oK3s0) — 3×10, controlled (no kipping)
    - **Why:** Dynamic core flexion complements Wednesday's anti-movement core work (Pallof press, L-sit). Hanging position also decompresses spine after the complexes.
    - **Cues:** Knees to chest, 1s hold at top, 2s lower. No swinging.
    - **Progression:** Knee raises → straight leg raises → toes to bar.
@@ -156,7 +156,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 1. **Easy Rope Skipping** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kDOGb9C5kp0) — 5 min, Zone 1
    - **Why:** Gets blood flowing to shoulders, wrists, and grip before heavy pulling.
 
-2. **Band Pull-Aparts** [🎥 Video Tutorial](https://www.youtube.com/watch?v=9M8ylnbriB0) — 2×15, light band
+2. **Band Pull-Aparts** [🎥 Video Tutorial](https://www.youtube.com/watch?v=q6g4P9oV4lE) — 2×15, light band
    - **Why:** Activates rear delts and external rotators before heavy pulling. Scapular pull-ups are already in the plan but start with straight arms — band pull-aparts wake up the retraction pattern first.
 
 ### Main Work (~43 min)
@@ -217,7 +217,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 2. **Bulgarian Split Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kU8O3yqE-O8) — 3×8 each leg, 2×14 kg DB
    - **Why:** Single-leg strength builder. Exposes and fixes imbalances. More knee-friendly than heavy barbell squats for 45+.
 
-3. **Single-Leg Romanian Deadlift** [🎥 Video Tutorial](https://www.youtube.com/watch?v=aJq97nKzVqA)
+3. **Single-Leg Romanian Deadlift** [🎥 Video Tutorial](https://www.youtube.com/watch?v=0h59L-f220Q)
    - **Sets × Reps:** 3×8 each leg
    - **Weight:** 20 kg KB or DB (start light — balance is the limiter)
    - **Tempo:** 2s down, 1s at bottom, controlled up

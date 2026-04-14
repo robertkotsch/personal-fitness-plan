@@ -349,26 +349,8 @@ tabsEl.addEventListener('click', e => {
 
 // ── Swipe gesture (mobile) ─────────────────────────────────────────────────
 
-let touchStartX = 0;
+// Removed to allow horizontal scrolling of horizontally-aligned set counters.
 
-contentEl.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-contentEl.addEventListener('touchend', e => {
-  const delta = touchStartX - e.changedTouches[0].screenX;
-  if (Math.abs(delta) > 60) {
-    if (delta > 0 && currentIdx < 7) currentIdx++;
-    else if (delta < 0 && currentIdx > 0) currentIdx--;
-    showDay(currentIdx);
-    const targetTab = tabsEl.querySelector(`[data-idx="${currentIdx}"]`);
-    if (targetTab) {
-      targetTab.scrollIntoView({
-        behavior: 'smooth', inline: 'center', block: 'nearest',
-      });
-    }
-  }
-}, { passive: true });
 
 // ── PWA install banner ─────────────────────────────────────────────────────
 
