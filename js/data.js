@@ -98,7 +98,7 @@ const DAYS = [
         why: 'Limits ROM to protect shoulders, overloads triceps. Great for 50+.',
         cues: 'Elbows touch ground gently each rep. No bouncing. 2 × 28 kg dumbbells.',
         prog: '+2.5 kg per DB when all sets hit 10.',
-        yt: YT('https://youtube.com/watch?v=ptpmRrzRtWQ', 'The Fastest Way To Blow Up Your Bench Press', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=uE3lWIDTExo', 'Dumbbell Floor Press', 'Jeff Nippard'),
       },
       {
         name: 'Heavy Rope Finisher', rx: '6 × 60s max sprint / 15s off (~7.5 min total)', n: 0,
@@ -107,7 +107,7 @@ const DAYS = [
         why: '40s/20s is too easy for 6k+ rope endurance. Lengthened sprint and shortened rest creates real lactic challenge.',
         cues: 'Max consistent rhythm each interval. Double-unders if available.',
         prog: '6×60s/15s → 6×75s/15s → 8×60s/15s.',
-        yt: YT('https://www.youtube.com/watch?v=OwxPc_ziQzo', 'Heavy Jump Rope Form', 'Crossrope'),
+        yt: YT('https://www.youtube.com/watch?v=y9WO4G9sxtI', 'Heavy Jump Rope Form', 'Crossrope'),
       },
       {
         name: 'Zone 2 Cooldown', rx: '18 min easy rope skipping or assault bike', n: 1,
@@ -149,7 +149,7 @@ const DAYS = [
         why: 'Shifts stimulus from endurance to massive upper-body/lat pre-exhaustion before burpees.',
         cues: 'Keep wrists strong. Drive rotation from lats. Don\'t let 2lb rope pull you out of posture.',
         prog: '+5s rope per round. Then +2 burpees.',
-        yt: YT('https://www.youtube.com/watch?v=TUdZq_2bXyU', 'How To Do A Burpee', 'CrossFit'),
+        yt: YT('https://www.youtube.com/watch?v=y9WO4G9sxtI', 'Heavy Rope Form', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8FzM', 'The Burpee', 'CrossFit'),
       },
       {
         name: 'Complex B: KB Circuit', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause)', n: 1,
@@ -157,7 +157,7 @@ const DAYS = [
         why: 'Clean & press = full-body power. The goblet squats serve double duty as a second weekly lower-body touchpoint.',
         cues: 'Clean: rack bell smoothly. Press: full lockout. Swings: snap hips. Squats: Emphasize depth and pause.',
         prog: '20 kg → 24 kg for all movements when C&P feels solid. Then +2 reps each.',
-        yt: YT('https://youtube.com/watch?v=eaQPi0LDoE0', 'Learn in 1 minute - KB Clean & Press', 'Mark Wildman'),
+        yt: YT('https://www.youtube.com/watch?v=eaQPi0LDoE0', 'KB Clean & Press', 'Mark Wildman') + YT('https://www.youtube.com/watch?v=K83RM7H9WrY', 'KB Swing Form', 'Squat University') + YT('https://www.youtube.com/watch?v=lRYBbchqxtI', 'Goblet Squat Form', 'Squat University'),
       },
       {
         name: 'Complex C: Bodyweight Power', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats', n: 1,
@@ -165,7 +165,7 @@ const DAYS = [
         why: 'Explosive upper body and lower body power conditioning. Hindu push-ups combine shoulder mobility with pressing.',
         cues: 'Pull-ups: pull fast, clear the bar. Hindu PU: down dog → swoop chest through → cobra → reverse.',
         prog: 'Pull-ups → chest-to-bar → muscle-up negatives. Hindu PU: slow swoop to 3s.',
-        yt: YT('https://youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups: A Brief How-To Guide', 'Aleks Salkin'),
+        yt: YT('https://www.youtube.com/watch?v=S8X_82v020w', 'Explosive Pull-Ups', 'FitnessFAQs') + YT('https://www.youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups', 'Aleks Salkin') + YT('https://www.youtube.com/watch?v=J-VBMpA_j8Y', 'Jumping Squats', 'CrossFit'),
       },
       {
         name: 'Hanging Knee Raises', rx: '3 × 10, controlled', n: 1,
@@ -173,7 +173,7 @@ const DAYS = [
         why: 'Dynamic core flexion complements Wednesday\'s anti-movement core work. Decompresses spine.',
         cues: 'Knees to chest, 1s hold at top, 2s lower. No swinging.',
         prog: 'Knee raises → straight leg raises → toes to bar.',
-        yt: YT('https://www.youtube.com/watch?v=7b7y65oK3s0', 'Hanging Knee Raises Tutorial', 'Tutorial'),
+        yt: YT('https://www.youtube.com/watch?v=X-ACS9vpRyU', 'Hanging Knee Raises Tutorial', 'Tutorial'),
       },
       {
         name: 'Hollow Body Hold', rx: '3 × 20s hold', n: 1,
@@ -182,7 +182,7 @@ const DAYS = [
         why: 'Full-body anterior chain tension. Transfers to handstand holds, L-sits, and ring work.',
         cues: 'Lower back pressed into floor. Arms overhead, legs extended, toes pointed. Bend knees if too hard.',
         prog: '20s → 30s → 40s → add light ankle weights.',
-        yt: YT('https://www.youtube.com/watch?v=6J6_2sNq2iA', 'Hollow Body Hold', 'FitnessFAQs'),
+        yt: YT('https://www.youtube.com/watch?v=uZqTUwq96iU', 'Hollow Body Hold', 'FitnessFAQs'),
       },
       {
         name: 'Steady-State Rowing', rx: '20 min, Zone 2, ~2:05–2:10/500m pace', n: 1,
@@ -240,7 +240,7 @@ const DAYS = [
         why: 'Decompression, not training stimulus. Builds grip. Shoulder health.',
         cues: 'Fully relax — let gravity stretch you. Shoulders by ears is fine (passive). Breathe deeply. No squirming.',
         prog: '45s → 60s → 75s → single-arm assisted (20s each).',
-        yt: YT('https://youtube.com/watch?v=M25ibDAVhMQ', 'How Dead Hangs Improve Your Life', 'Minus The Gym'),
+        yt: YT('https://www.youtube.com/watch?v=M25ibDAVhMQ', 'How Dead Hangs Improve Your Life', 'Minus The Gym'),
       },
       {
         name: 'L-Sit Progression', rx: '3 × 15–20 sec hold (~3 min with rest)', n: 1,
@@ -266,7 +266,7 @@ const DAYS = [
         why: 'Adductors stabilize the knee during single-leg movements. Isometric prehab.',
         cues: 'Side plank, top leg on bench, bottom leg pulls up to meet bench. If too hard: bend knee on bench.',
         prog: '20s → 30s → 40s. Then straight-leg version if starting bent-knee.',
-        yt: YT('https://youtube.com/watch?v=S3742-WICz8', 'Copenhagen Plank Tutorial', 'Squat University'),
+        yt: YT('https://www.youtube.com/watch?v=S3742-WICz8', 'Copenhagen Plank Tutorial', 'Squat University'),
       },
       {
         name: 'Shoulder Dislocates', rx: '2 × 15, band or dowel', n: 1,
@@ -282,7 +282,7 @@ const DAYS = [
         why: 'Hip mobility degrades silently after 40. Best stretch for rotation.',
         cues: 'Front shin parallel to shoulders. Both knees 90°. Sit tall, lean forward gently.',
         prog: 'Add rotation. Forward fold over front shin.',
-        yt: YT('https://youtube.com/watch?v=BNWLBuohUGQ', 'Top 3 Hip Mobility Openers', 'Squat University'),
+        yt: YT('https://www.youtube.com/watch?v=kU11Nl8X4s8', '90/90 Hip Stretch', 'Squat University'),
       },
       {
         name: 'Extended Mobility', rx: '10 min foam rolling or lacrosse ball', n: 1,
@@ -476,7 +476,7 @@ const DAYS = [
         why: 'Advanced Fartlek. Builds stamina + VO2 max by spiking heart rate with burpees during aerobic baseline.',
         cues: 'Alternate heavy/normal rope. Push hard during burpee sets to spike HR, then use skipping as active recovery.',
         prog: 'Increase burpees per set or speed of skipping recovery.',
-        yt: YT('https://www.youtube.com/watch?v=TUdZq_2bXyU', 'How To Do A Burpee', 'CrossFit'),
+        yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Heavy Rope Skipping', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8FzM', 'The Burpee', 'CrossFit'),
       },
       {
         name: 'Turkish Get-Up', rx: '3 × 2 each side', n: 1,

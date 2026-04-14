@@ -40,7 +40,7 @@
 6. **Floor Press** [🎥 Video Tutorial](https://www.youtube.com/watch?v=uE3lWIDTExo) — 3×10, 2×28 kg DB
    - **Why:** Limits ROM to protect shoulders while overloading triceps. Great for 50+ lifters.
 
-7. **Heavy Rope Finisher** [🎥 Video Tutorial](https://www.youtube.com/watch?v=gC82dD9_p20) — 6×60s on / 15s off (~7.5 min)
+7. **Heavy Rope Finisher** [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) — 6×60s on / 15s off (~7.5 min)
    - **Why:** 40s/20s is too easy for 6k+ rope endurance. Lengthened sprint and shortened rest creates real lactic challenge.
 
 8. **Zone 2 Cooldown** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kDOGb9C5kp0) — 18 min easy rope skipping or assault bike, HR 130–140 bpm
@@ -66,7 +66,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 #### Complex A: Rope & Burpee
 
-- 4 rounds: 40s power rope skip (2 lb heavy) [🎥 Video Tutorial](https://www.youtube.com/watch?v=gC82dD9_p20) → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=TUdZq_2bXyU) → 20s rest
+- 4 rounds: 40s power rope skip (2 lb heavy) [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=auBLPXO8FzM) → 20s rest
 - **Why:** Shifts stimulus from pure cardio endurance to massive upper-body/lat pre-exhaustion before hitting the burpees.
 
 #### Complex B: Kettlebell Circuit
@@ -78,17 +78,17 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 #### Complex C: Bodyweight Power
 
-- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=V7cT5m8Hq_M) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats [🎥 Video Tutorial](https://www.youtube.com/watch?v=vB7w6S7V-uA) → 30s rest
+- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=S8X_82v020w) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats [🎥 Video Tutorial](https://www.youtube.com/watch?v=J-VBMpA_j8Y) → 30s rest
 - **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple. Explosive pull-ups maintain power output.
 
 ### Core Circuit (~8 min)
 
-3. **Hanging Knee Raises** [🎥 Video Tutorial](https://www.youtube.com/watch?v=7b7y65oK3s0) — 3×10, controlled (no kipping)
+3. **Hanging Knee Raises** [🎥 Video Tutorial](https://www.youtube.com/watch?v=X-ACS9vpRyU) — 3×10, controlled (no kipping)
    - **Why:** Dynamic core flexion complements Wednesday's anti-movement core work (Pallof press, L-sit). Hanging position also decompresses spine after the complexes.
    - **Cues:** Knees to chest, 1s hold at top, 2s lower. No swinging.
    - **Progression:** Knee raises → straight leg raises → toes to bar.
 
-4. **Hollow Body Hold** [🎥 Video Tutorial](https://www.youtube.com/watch?v=6J6_2sNq2iA) — 3×20s
+4. **Hollow Body Hold** [🎥 Video Tutorial](https://www.youtube.com/watch?v=uZqTUwq96iU) — 3×20s
    - **Why:** Full-body anterior chain tension. Transfers to handstand holds, L-sits, and ring work.
    - **Cues:** Lower back pressed into floor. Arms overhead, legs extended, toes pointed. If too hard, bend knees or bring arms to sides.
    - **Progression:** 20s → 30s → 40s → add light ankle weights.
