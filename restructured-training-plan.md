@@ -64,22 +64,22 @@
 
 Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
-#### Complex A: Rope & Burpee
+#### Complex A: Rope & Burpee (~7 min)
 
 - 4 rounds: 40s rope skip (2 lb) [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) → 20s ready/transition → 10 burpees [🎥 Video Tutorial](https://www.youtube.com/watch?v=auBLPXO8Fww) → 20s rest
 - **Why:** Shifts stimulus from pure cardio endurance to massive upper-body/lat pre-exhaustion. Added 20s "ready" phase to safely toss the heavy rope and prepare for burpees.
 
-#### Complex B: Kettlebell Circuit
+#### Complex B: Kettlebell Circuit (~6 min)
 
 - 3 rounds: 5 clean & press each arm [🎥 Video Tutorial](https://youtube.com/watch?v=eaQPi0LDoE0) → 12 swings [🎥 Video Tutorial](https://www.youtube.com/watch?v=K83RM7H9WrY) → 5 goblet squats [🎥 Video Tutorial](https://www.youtube.com/watch?v=lRYBbchqxtI) (2s pause) → 30s rest
 - KB: 20 kg → 24 kg
 - **Why:** Clean & press is full-body power, easier on wrists than barbell cleans.
 - **Note:** The goblet squats here serve double duty as a second weekly lower-body touchpoint. Emphasize depth and pause.
 
-#### Complex C: Bodyweight Power
+#### Complex C: Bodyweight Power (~5 min)
 
-- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=72t8p_xq7lo) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats (2x12kg DB) [🎥 Video Tutorial](https://www.youtube.com/watch?v=mnbG9lKTYMo) → 30s rest
-- **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple. Added 12kg load to jump squats for sustained power output.
+- 3 rounds: 5 explosive pull-ups [🎥 Video Tutorial](https://www.youtube.com/watch?v=72t8p_xq7lo) → 10 Hindu push-ups [🎥 Video Tutorial](https://youtube.com/watch?v=lTzaiPM82Ps) → 10 jump squats (2x10kg DB) [🎥 Video Tutorial](https://www.youtube.com/watch?v=mnbG9lKTYMo) → 30s rest
+- **Why:** Hindu push-ups combine shoulder mobility with pressing — wrestling conditioning staple. Added 10kg load to jump squats for sustained power output.
 
 ### Core Circuit (~8 min)
 

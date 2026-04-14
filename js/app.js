@@ -186,7 +186,17 @@ function renderDay(day) {
     </div>`;
   }
 
-  const exercises = day.exercises.map((ex, i) => {
+  let exNum = 1;
+  const exercisesHtml = day.exercises.map((ex, i) => {
+    if (ex.isHeader) {
+      return `
+        <div class="block-header">
+          <div class="block-name">${ex.name}</div>
+          ${ex.time ? `<div class="block-time">${ex.time}</div>` : ''}
+        </div>`;
+    }
+
+    const currentExNum = exNum++;
     const setsCount = getSetsCount(ex.rx);
     const unit      = ex.unit !== undefined ? ex.unit : 'kg';
 
@@ -214,7 +224,7 @@ function renderDay(day) {
     return `
     <div class="exercise-card" data-exidx="${i}">
       <div class="exercise-header">
-        <div class="exercise-num">${i + 1}</div>
+        <div class="exercise-num">${currentExNum}</div>
         <div class="exercise-info">
           <div class="exercise-name">${ex.name}</div>
           <div class="exercise-prescription">${ex.rx}</div>
@@ -251,7 +261,7 @@ function renderDay(day) {
       <div class="day-focus">${day.focus}</div>
       <div class="day-duration">${day.duration}</div>
     </div>
-    ${exercises}
+    ${exercisesHtml}
     ${notesHtml}
   </div>`;
 }

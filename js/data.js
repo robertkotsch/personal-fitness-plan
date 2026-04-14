@@ -52,6 +52,7 @@ const DAYS = [
     notes: 'Warm-up before explosive work. Added 18 min Zone 2 conditioning after the rope finisher to build aerobic base without adding training stress. '
          + 'Tempo (Bench): 3s eccentric, 1s pause, explode up.',
     exercises: [
+      { name: 'Warm-Up Block (~7 min)', isHeader: true },
       {
         name: 'Easy Rope Skipping (Warm-Up)', rx: '5 min, Zone 1, conversational pace', n: 1,
         track: false,
@@ -68,6 +69,7 @@ const DAYS = [
         prog: 'Move to 24 kg when 12 reps feel easy.',
         yt: YT('https://youtube.com/watch?v=13SFATc-mJ4', 'How to perform the Kettlebell Halo', 'Coach Gabe West'),
       },
+      { name: 'Strength + Power Block (~25 min)', isHeader: true },
       {
         name: 'Bench Press', rx: '4 × 6 @ RPE 7–8', n: 0,
         unit: 'kg', recommended: 72.5, step: 2.5,
@@ -100,6 +102,7 @@ const DAYS = [
         prog: '+2.5 kg per DB when all sets hit 10.',
         yt: YT('https://www.youtube.com/watch?v=uE3lWIDTExo', 'Dumbbell Floor Press', 'Jeff Nippard'),
       },
+      { name: 'Finisher + Conditioning (~26 min)', isHeader: true },
       {
         name: 'Heavy Rope Finisher', rx: '6 × 60s max sprint / 15s off (~7.5 min total)', n: 0,
         track: false,
@@ -126,6 +129,7 @@ const DAYS = [
     notes: 'Expanded session. Now includes proper on-ramp, core circuit, steady-state rowing, and cooldown. '
          + 'Format: 3 complexes, 3-4 rounds each, 2 min rest between complexes.',
     exercises: [
+      { name: 'Warm-Up Block (~8 min)', isHeader: true },
       {
         name: 'KB Halo (Warm-Up)', rx: '2 × 8 each direction', n: 0,
         unit: 'kg', recommended: 20, step: 4,
@@ -143,8 +147,9 @@ const DAYS = [
         prog: 'Keep it conversational.',
         yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Jump Rope Basics For Beginners', 'Jump Rope Dudes'),
       },
+      { name: 'Complexes Block (~32 min)', isHeader: true },
       {
-        name: 'Complex A: Rope (2 lb) & Burpee', rx: '4 rds: 40s rope → 20s ready → 10 burpees → 20s rest', n: 1,
+        name: 'Complex A: Rope (2 lb) & Burpee (~7 min)', rx: '4 rds: 40s rope → 20s ready → 10 burpees → 20s rest', n: 1,
         track: false,
         timer: { 
           rounds: 4, work: 40, trans: 20, rest: 20, rest2: 20,
@@ -156,7 +161,7 @@ const DAYS = [
         yt: YT('https://www.youtube.com/watch?v=y9WO4G9sxtI', 'Heavy Rope Form', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8Fww', 'The Burpee', 'CrossFit'),
       },
       {
-        name: 'Complex B: KB Circuit', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause)', n: 1,
+        name: 'Complex B: KB Circuit (~6 min)', rx: '3 rds: 5 C&P ea. → 12 swings → 5 goblet sq. (2s pause)', n: 1,
         unit: 'kg', recommended: 20, step: 4,
         why: 'Clean & press = full-body power. The goblet squats serve double duty as a second weekly lower-body touchpoint.',
         cues: 'Clean: rack bell smoothly. Press: full lockout. Swings: snap hips. Squats: Emphasize depth and pause.',
@@ -164,14 +169,15 @@ const DAYS = [
         yt: YT('https://www.youtube.com/watch?v=eaQPi0LDoE0', 'KB Clean & Press', 'Mark Wildman') + YT('https://www.youtube.com/watch?v=K83RM7H9WrY', 'KB Swing Form', 'Squat University') + YT('https://www.youtube.com/watch?v=lRYBbchqxtI', 'Goblet Squat Form', 'Squat University'),
       },
       {
-        name: 'Complex C: Power Circuit', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats (2x12kg)', n: 1,
-        unit: 'kg', recommended: 12, step: 4,
+        name: 'Complex C: Power Circuit (~5 min)', rx: '3 rds: 5 exp. pull-ups → 10 Hindu PU → 10 jump squats (2x10kg)', n: 1,
+        unit: 'kg', recommended: 10, step: 2.5,
         track: true,
         why: 'Explosive upper body and lower body power conditioning. Added load to jump squats for progression.',
         cues: 'Jump Squats: 10kg DB in each hand. Pull-ups: pull fast, clear the bar. Hindu PU: swooping motion.',
         prog: 'Pull-ups → chest-to-bar. Jump Squats: 10kg → 12kg.',
         yt: YT('https://www.youtube.com/watch?v=72t8p_xq7lo', '3 BEST Exercises for EXPLOSIVE PULL-UPS', 'FitnessFAQs') + YT('https://www.youtube.com/watch?v=lTzaiPM82Ps', 'Hindu Pushups', 'Aleks Salkin') + YT('https://www.youtube.com/watch?v=mnbG9lKTYMo', 'Jumping Squats', 'CrossFit'),
       },
+      { name: 'Core Circuit (~8 min)', isHeader: true },
       {
         name: 'Hanging Knee Raises', rx: '3 × 10, controlled', n: 1,
         unit: 'reps', recommended: 10, step: 1,
@@ -189,6 +195,7 @@ const DAYS = [
         prog: '20s → 30s → 40s → add light ankle weights.',
         yt: YT('https://www.youtube.com/watch?v=uZqTUwq96iU', 'Hollow Body Hold', 'FitnessFAQs'),
       },
+      { name: 'Steady-State Conditioning (~20 min)', isHeader: true },
       {
         name: 'Steady-State Rowing', rx: '20 min, Zone 2, ~2:05–2:10/500m pace', n: 1,
         unit: 'min', recommended: 20, step: 1,
@@ -197,6 +204,7 @@ const DAYS = [
         prog: 'Track total distance. Aim to hold a consistent pace throughout.',
         yt: YT('https://www.youtube.com/watch?v=zQ82RYIFLN8', 'Steady-State Rowing Form', 'Dark Horse Rowing'),
       },
+      { name: 'Cooldown (~5 min)', isHeader: true },
       {
         name: 'Easy Rope Skipping (Cooldown)', rx: '5 min, Zone 1', n: 1,
         track: false,
@@ -214,6 +222,7 @@ const DAYS = [
     notes: 'Extended day. Heavy loaded carries and targeted mobility. Remains recovery-biased — nothing explosive, nothing heavy overhead. '
          + 'Fartlek rowing: 1 min max sprint every 5 min (8 sprints total). Damper 5–6.',
     exercises: [
+      { name: 'Main Engine Block (~40 min)', isHeader: true },
       {
         name: '40 Min Rowing Fartlek', rx: '40 min continuous: 1 min max sprint every 5 min', n: 0,
         unit: 'km', recommended: 9, step: 0.1,
@@ -222,6 +231,7 @@ const DAYS = [
         prog: 'Increase your total distance logged over the full 40 minutes.',
         yt: YT('https://www.youtube.com/watch?v=zQ82RYIFLN8', '500m Row Intervals', 'Dark Horse Rowing'),
       },
+      { name: 'Core & Grip Block (~22 min)', isHeader: true },
       {
         name: 'Kettlebell Halo', rx: '2 × 10 each direction', n: 0,
         track: false,
@@ -273,6 +283,7 @@ const DAYS = [
         prog: '20s → 30s → 40s. Then straight-leg version if starting bent-knee.',
         yt: YT('https://www.youtube.com/watch?v=S3742-WICz8', 'Copenhagen Plank Tutorial', 'Squat University'),
       },
+      { name: 'Mobility & Recovery (~17 min)', isHeader: true },
       {
         name: 'Shoulder Dislocates', rx: '2 × 15, band or dowel', n: 1,
         unit: 'reps', recommended: 15, step: 1,
@@ -305,6 +316,7 @@ const DAYS = [
     focus: 'Upper Pull + Skill', duration: '~74 min',
     notes: 'Proper warm-up added. Dense high-quality pulling volume. Decompression and targeted stretched added to close the session.',
     exercises: [
+      { name: 'Warm-Up Block (~7 min)', isHeader: true },
       {
         name: 'Easy Rope Skipping (Warm-Up)', rx: '5 min, Zone 1', n: 1,
         track: false,
@@ -321,6 +333,7 @@ const DAYS = [
         prog: 'Thicker band or more reps.',
         yt: YT('https://www.youtube.com/watch?v=q6g4P9oV4lE', 'Band Pull-Aparts', 'Jeff Nippard'),
       },
+      { name: 'Main Pulling Block (~43 min)', isHeader: true },
       {
         name: 'Scapular Pull-Ups', rx: '2 × 10', n: 1,
         unit: 'reps', recommended: 10, step: 1,
@@ -377,6 +390,7 @@ const DAYS = [
         prog: '+2.5 kg when 15 reps with 2s hold feel easy. Start lighter than ego says.',
         yt: YT('https://www.youtube.com/watch?v=qfc70k40318', 'Face Pulls Done Right', 'Jeff Nippard'),
       },
+      { name: 'Finisher + Skill Block (~24 min)', isHeader: true },
       {
         name: 'Dead Hang (Decompression)', rx: '2 × 30s, passive', n: 1,
         unit: 'sec', recommended: 30, step: 5,
@@ -411,6 +425,7 @@ const DAYS = [
     focus: 'Lower Body + Conditioning', duration: '~90 min',
     notes: 'Single-leg RDL added after Bulgarians addresses the hamstring gap. Nordics are eccentric-only at your stage.',
     exercises: [
+      { name: 'Main Strength Block (~40 min)', isHeader: true },
       {
         name: 'KB Goblet Squat', rx: '4 × 10, 3s pause at bottom', n: 0,
         unit: 'kg', recommended: 24, step: 4,
@@ -459,6 +474,7 @@ const DAYS = [
         prog: 'Double leg → single leg → add weight → off a step.',
         yt: YT('https://www.youtube.com/watch?v=-qsRtp_PbVM', 'How To Build Calves', 'Jeff Nippard'),
       },
+      { name: 'Conditioning Block (~45 min)', isHeader: true },
       {
         name: '45 Min Elliptical Fartlek', rx: 'Level 22 base, ladder intervals', n: 0,
         unit: 'level', recommended: 22, step: 1,
@@ -475,6 +491,7 @@ const DAYS = [
     focus: 'Long Conditioning + Mobility', duration: '~80 min',
     notes: 'Block A: Conditioning (~60 min). Block B: Skill & Mobility (15-20 min). If Block A wipes you out, do Block B first or move it to Sunday.',
     exercises: [
+      { name: 'Block A: Conditioning (~60 min)', isHeader: true },
       {
         name: '1-Hour Rope & Burpee Fartlek', rx: '60 min continuous: 8x20 burpees mixed in', n: 0,
         unit: 'reps', recommended: 20, step: 1,
@@ -483,6 +500,7 @@ const DAYS = [
         prog: 'Increase burpees per set or speed of skipping recovery.',
         yt: YT('https://www.youtube.com/watch?v=kDOGb9C5kp0', 'Heavy Rope Skipping', 'Crossrope') + YT('https://www.youtube.com/watch?v=auBLPXO8Fww', 'The Burpee', 'CrossFit'),
       },
+      { name: 'Block B: Skill & Mobility (~20 min)', isHeader: true },
       {
         name: 'Turkish Get-Up', rx: '3 × 2 each side', n: 1,
         unit: 'kg', recommended: 12, step: 4,
