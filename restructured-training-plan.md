@@ -116,7 +116,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 2. **KB Halo** [🎥 Video Tutorial](https://youtube.com/watch?v=13SFATc-mJ4) — 2×10 each direction, 20 kg
    - **Why:** Active recovery. Transition to core work.
 
-3. **Farmer's Walk** [🎥 Video Tutorial](https://www.youtube.com/watch?v=FvdO-nzjAFA) — 3×40m, 2×24 kg KB, 60s rest (~5 min)
+3. **Farmer's Walk** [🎥 Video Tutorial](https://www.youtube.com/shorts/1uOs1hP3u4A) — 3×40m, 2×24 kg KB, 60s rest (~5 min)
    - **Why:** Low-CNS loaded carry that trains grip, core stability, and posture under load. Perfect for a buffer day — no eccentric damage, no joint stress, just honest full-body work. Also reinforces the upright trunk position you need for squats and deadlifts.
    - **Cues:** Shoulders packed down and back. Walk in a straight line. Don't let KBs touch thighs. Breathe.
    - **Progression:** 2×24 kg → 2×28 kg → 2×32 kg. Then extend distance to 60m.
@@ -130,17 +130,17 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 6. **Pallof Press** [🎥 Video Tutorial](https://www.youtube.com/watch?v=AH_QZLm_0-s) — 3×10 each side, cable, 2s hold at extension
    - **Why:** Anti-rotation core exercise. Trains core's actual job: resisting unwanted movement. Crucial for spinal health.
 
-7. **Copenhagen Plank** [🎥 Video Tutorial](https://www.youtube.com/watch?v=S3742-WICz8) — 2×20s each side, 45s rest (~3 min)
+7. **Copenhagen Plank** [🎥 Video Tutorial](https://www.youtube.com/watch?v=YRRnnZsRs9U) — 2×20s each side, 45s rest (~3 min)
    - **Why:** There is zero adductor work in this plan, and you're doing Bulgarian split squats and single-leg RDLs on Friday. The adductors stabilize the knee during all single-leg movements — weak adductors under heavy single-leg load is an injury vector. This is isometric prehab, not training.
    - **Cues:** Side plank position, top leg on bench, bottom leg hangs. Lift bottom leg to meet bench. Hold. If too hard: bent knee on bench instead of straight leg.
    - **Progression:** 20s → 30s → 40s. Then straight-leg version if starting with bent knee.
 
-8. **Shoulder Dislocates** [🎥 Video Tutorial](https://www.youtube.com/watch?v=A_0uY-eF52g) — 2×15, band or dowel (~3 min)
+8. **Shoulder Dislocates** [🎥 Video Tutorial](https://www.youtube.com/watch?v=tunjaSZE7YA) — 2×15, band or dowel (~3 min)
    - **Why:** Prepares shoulders for Thursday's heavy pulling. Increases overhead mobility gradually. At 91 kg and desk-job posture, anterior shoulder tightness will limit skin the cat and overhead positions.
-   - **Cues:** Wide grip on band/dowel. Slow controlled arc from front to behind back. Narrow grip progressively as mobility improves.
-   - **Progression:** Narrow grip width over weeks.
+   - **Cues:** Wide grip on band/dowel. Slow controlled arc from front to behind back. **If too hard, use a resistance band instead of a rigid stick.**
+   - **Progression:** Narrow grip width over weeks. Switch from band to dowel as mobility improves.
 
-9. **90/90 Hip Stretch** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kU11Nl8X4s8) — 2 min each side
+9. **90/90 Hip Stretch** [🎥 Video Tutorial](https://www.youtube.com/watch?v=y_6i7nGHAio) — 2 min each side
    - **Why:** Hip mobility degrades silently after 40. Best position for internal + external rotation.
 
 10. **Extended Mobility** [🎥 Video Tutorial](https://www.youtube.com/watch?v=426rzPkx4D8) — 10 min foam rolling or lacrosse ball work

@@ -28,6 +28,8 @@ function YT(url, title, channel) {
     videoId = url.split('v=')[1].split('&')[0];
   } else if (url.includes('youtu.be/')) {
     videoId = url.split('youtu.be/')[1].split('?')[0];
+  } else if (url.includes('/shorts/')) {
+    videoId = url.split('/shorts/')[1].split('?')[0];
   }
   
   if (!videoId) return '';
@@ -246,7 +248,7 @@ const DAYS = [
         why: 'Low-CNS loaded carry that trains grip, core stability, and posture. Perfect for buffer day.',
         cues: 'Shoulders packed down and back. Walk straight. Don\'t let KBs touch thighs. Breathe.',
         prog: '2×24 kg → 2×28 kg → 2×32 kg. Then extend distance to 60m.',
-        yt: YT('https://www.youtube.com/watch?v=FvdO-nzjAFA', 'Farmer\'s Walk Form', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/shorts/1uOs1hP3u4A', 'The Best Core Exercise', 'Squat University'),
       },
       {
         name: 'Dead Hang', rx: '3 × 45 sec (~4 min with rest)', n: 1,
@@ -281,16 +283,16 @@ const DAYS = [
         why: 'Adductors stabilize the knee during single-leg movements. Isometric prehab.',
         cues: 'Side plank, top leg on bench, bottom leg pulls up to meet bench. If too hard: bend knee on bench.',
         prog: '20s → 30s → 40s. Then straight-leg version if starting bent-knee.',
-        yt: YT('https://www.youtube.com/watch?v=S3742-WICz8', 'Copenhagen Plank Tutorial', 'Squat University'),
+        yt: YT('https://www.youtube.com/watch?v=YRRnnZsRs9U', 'Copenhagen Plank Tutorial', 'E3 Rehab'),
       },
       { name: 'Mobility & Recovery (~17 min)', isHeader: true },
       {
         name: 'Shoulder Dislocates', rx: '2 × 15, band or dowel', n: 1,
         unit: 'reps', recommended: 15, step: 1,
         why: 'Prepares shoulders for Thursday\'s heavy pulling. Increases overhead mobility gradually.',
-        cues: 'Wide grip. Slow controlled arc front to back. Narrow grip progressively.',
-        prog: 'Narrow grip width over weeks.',
-        yt: YT('https://www.youtube.com/watch?v=A_0uY-eF52g', 'Shoulder Dislocates Form', 'Tutorial'),
+        cues: 'Wide grip. Slow controlled arc front to back. If too hard, use a resistance band and grip wider.',
+        prog: 'Narrow grip width over weeks. Switch to a band to reduce torque.',
+        yt: YT('https://www.youtube.com/watch?v=tunjaSZE7YA', 'Fix Rounded Shoulders', 'FitnessFAQs'),
       },
       {
         name: '90/90 Hip Stretch', rx: '2 min each side', n: 1,
@@ -298,7 +300,7 @@ const DAYS = [
         why: 'Hip mobility degrades silently after 40. Best stretch for rotation.',
         cues: 'Front shin parallel to shoulders. Both knees 90°. Sit tall, lean forward gently.',
         prog: 'Add rotation. Forward fold over front shin.',
-        yt: YT('https://www.youtube.com/watch?v=kU11Nl8X4s8', '90/90 Hip Stretch', 'Squat University'),
+        yt: YT('https://www.youtube.com/watch?v=y_6i7nGHAio', '5 Levels of 90/90 Hip Mobility', 'Squat University'),
       },
       {
         name: 'Extended Mobility', rx: '10 min foam rolling or lacrosse ball', n: 1,
