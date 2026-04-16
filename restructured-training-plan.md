@@ -156,8 +156,10 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 1. **Easy Rope Skipping** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kDOGb9C5kp0) — 5 min, Zone 1
    - **Why:** Gets blood flowing to shoulders, wrists, and grip before heavy pulling.
 
-2. **Band Pull-Aparts** [🎥 Video Tutorial](https://www.youtube.com/watch?v=q6g4P9oV4lE) — 2×15, light band
-   - **Why:** Activates rear delts and external rotators before heavy pulling. Scapular pull-ups are already in the plan but start with straight arms — band pull-aparts wake up the retraction pattern first.
+2. **Reverse Butterfly** [🎥 Video Tutorial](https://www.youtube.com/watch?v=-TKqxK7-ehc) — 2×15, 20 kg, controlled
+   - **Why:** Activates rear delts and external rotators before heavy pulling. Machine-guided arc ensures clean isolation with no grip fatigue eating into the warm-up.
+   - **Cues:** Sit facing the pad (reversed). Open arms horizontally, straight elbows, squeeze 1–2s at full open. Return under control — don't let the stack crash.
+   - **Progression:** Start at 20 kg. +2.5 kg when 15 reps with 2s squeeze feel easy. Cap at ~35 kg — this is activation, not a strength lift.
 
 ### Main Work (~43 min)
 
@@ -173,7 +175,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 6. **Archer Pull-Ups** [🎥 Video Tutorial](https://www.youtube.com/watch?v=6qtY8j92gA8) — 3×3 each side BW
    - **Why:** Bridge between regular and one-arm pull-ups. Unilateral pulling at 91 kg is demanding.
 
-7. **Cable Row** [🎥 Video Tutorial](https://www.youtube.com/watch?v=jG394Q6J9J4)
+7. **Cable Row** [🎥 Video Tutorial](https://www.youtube.com/watch?v=jLvqKgW-_G8)
    - **Sets × Reps:** 3×10
    - **Equipment:** Seated cable row, close-grip or V-bar attachment
    - **Weight:** Start ~45 kg (adjust to RPE 7)
@@ -202,9 +204,7 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 
 ### Shoulder Stretching (~5 min)
 
-12. **Cross-Body Shoulder Stretch** [🎥 Video Tutorial](https://www.youtube.com/watch?v=qhR568M6XAQ) — 30s each side
-13. **Doorframe Pec Stretch** [🎥 Video Tutorial](https://www.youtube.com/watch?v=qhR568M6XAQ) — 30s each side
-14. **Band-Assisted Overhead Stretch** [🎥 Video Tutorial](https://www.youtube.com/watch?v=qhR568M6XAQ) — 30s each side
+12. **Shoulder Mobility Routine** [🎥 Video Tutorial](https://www.youtube.com/watch?v=7OzIZqGOxL4) — 5–9 min follow-along
     - **Why:** After 4 heavy pulling movements + rows + curls, shoulders and lats are shortened and tight. 5 min of targeted stretching returns tissue to resting length and prepares for tomorrow's lower body session.
 
 ---
