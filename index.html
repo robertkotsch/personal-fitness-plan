@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <!-- Prevent browser from serving stale cached content -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#0a0a0a">
   <title>Rob's Training Plan</title>
-  <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260416">
 </head>
 <body>
 
@@ -27,10 +30,25 @@
     <button class="dismiss-btn" id="dismissBtn">Not now</button>
   </div>
 
+  <!-- Kill any stale Service Workers from previous projects on this origin -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        var killed = registrations.length;
+        registrations.forEach(function(reg) { reg.unregister(); });
+        if (killed > 0 && caches && caches.keys) {
+          caches.keys().then(function(keys) {
+            keys.forEach(function(key) { caches.delete(key); });
+          }).then(function() { window.location.reload(); });
+        }
+      });
+    }
+  </script>
+
   <!-- Load order matters: data → timer → app -->
-  <script src="js/data.js"></script>
-  <script src="js/timer.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/data.js?v=20260416"></script>
+  <script src="js/timer.js?v=20260416"></script>
+  <script src="js/app.js?v=20260416"></script>
 
 </body>
 </html>
