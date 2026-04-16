@@ -30,21 +30,6 @@
     <button class="dismiss-btn" id="dismissBtn">Not now</button>
   </div>
 
-  <!-- Kill any stale Service Workers from previous projects on this origin -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        var killed = registrations.length;
-        registrations.forEach(function(reg) { reg.unregister(); });
-        if (killed > 0 && caches && caches.keys) {
-          caches.keys().then(function(keys) {
-            keys.forEach(function(key) { caches.delete(key); });
-          }).then(function() { window.location.reload(); });
-        }
-      });
-    }
-  </script>
-
   <!-- Load order matters: data → timer → app -->
   <script src="js/data.js?v=20260416"></script>
   <script src="js/timer.js?v=20260416"></script>
