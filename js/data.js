@@ -442,7 +442,7 @@ const DAYS = [
         why: 'Single-leg strength builder. Exposes and fixes imbalances. More knee-friendly than heavy barbell squats for 45+.',
         cues: 'Rear foot on bench, shoelaces down. Front shin roughly vertical. 2 × 12 kg dumbbells.',
         prog: 'BW → 2×12 kg DB → 2×16 kg DB → 2×20 kg DB → add deficit (front foot elevated).',
-        yt: YT('https://www.youtube.com/watch?v=kU8O3yqE-O8', 'Bulgarian Split Squat', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=HBYGeyb4sSM', 'The Ultimate Guide To Bulgarian Split Squats', 'Jeff Nippard'),
       },
       {
         name: 'Single-Leg Romanian Deadlift', rx: '3 × 8 each leg', n: 1,
@@ -450,7 +450,7 @@ const DAYS = [
         why: 'Fills the hamstring gap beyond Nordics: lengthened-position hamstring work + single-leg balance + hip stability.',
         cues: 'Hinge at hip, free leg goes straight back. KB in opposite hand to working leg. Slight knee bend. Touch mid-shin. Square to floor.',
         prog: '20 kg → 24 kg → 28 kg. Then deficit (stand on 5 cm plate).',
-        yt: YT('https://www.youtube.com/watch?v=0h59L-f220Q', 'Master the Single Leg Romanian Deadlift', 'Squat University'),
+        yt: YT('https://www.youtube.com/watch?v=Vv6L5-F_1YU', 'Improve Your Deadlift with a Single Leg Romanian Deadlift', 'Mind Pump TV'),
       },
       {
         name: 'Kettlebell Swing', rx: '4 × 15, Russian style (eye level)', n: 0,

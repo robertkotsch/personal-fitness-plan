@@ -214,11 +214,11 @@ Format: 3 complexes, 3–4 rounds each, 2 min rest between complexes.
 1. **KB Goblet Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=lRYBbchqxtI) — 4×10, 24 kg, 3s pause at bottom
    - **Why:** Builds squat depth and strength. Pause eliminates stretch reflex and forces honest reps.
 
-2. **Bulgarian Split Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=kU8O3yqE-O8) — 3×8 each leg, 2 × 12 kg DB
+2. **Bulgarian Split Squat** [🎥 Video Tutorial](https://www.youtube.com/watch?v=HBYGeyb4sSM) — 3×8 each leg, 2 × 12 kg DB
    - **Why:** Single-leg strength builder. Fixes imbalances. Use 12 kg dumbbells (standard step).
    - **Progression:** BW → 2×12 kg → 2×16 kg → 2×20 kg.
 
-3. **Single-Leg Romanian Deadlift** [🎥 Video Tutorial](https://www.youtube.com/watch?v=0h59L-f220Q)
+3. **Single-Leg Romanian Deadlift** [🎥 Video Tutorial](https://www.youtube.com/watch?v=Vv6L5-F_1YU)
    - **Sets × Reps:** 3×8 each leg
    - **Weight:** 20 kg KB or DB (start light — balance is the limiter)
    - **Tempo:** 2s down, 1s at bottom, controlled up
