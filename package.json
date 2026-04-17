@@ -1,0 +1,16 @@
+{
+  "name": "personal-fitness-plan",
+  "version": "1.0.0",
+  "description": "Rob's personal fitness training plan app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx serve ."
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
