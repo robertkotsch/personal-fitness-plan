@@ -102,7 +102,7 @@ const DAYS = [
         why: 'Limits ROM to protect shoulders, overloads triceps. Great for 50+.',
         cues: 'Elbows touch ground gently each rep. No bouncing. 2 × 28 kg dumbbells.',
         prog: '+2.5 kg per DB when all sets hit 10.',
-        yt: YT('https://www.youtube.com/watch?v=uE3lWIDTExo', 'Dumbbell Floor Press', 'Jeff Nippard'),
+        yt: YT('https://www.youtube.com/watch?v=uUGDRwge4F8', 'How To: Dumbbell Floor Press', 'ScottHermanFitness'),
       },
       { name: 'Finisher + Conditioning (~26 min)', isHeader: true },
       {

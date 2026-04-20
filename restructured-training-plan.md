@@ -37,7 +37,7 @@
 5. **Ring Dips** [🎥 Video Tutorial](https://youtube.com/watch?v=AdUfoCj3COQ) — 3×8 BW
    - **Why:** Rings let wrists rotate naturally — more shoulder-friendly. Adds stabilizer demand.
 
-6. **Floor Press** [🎥 Video Tutorial](https://www.youtube.com/watch?v=uE3lWIDTExo) — 3×10, 2×28 kg DB
+6. **Floor Press** [🎥 Video Tutorial](https://www.youtube.com/watch?v=uUGDRwge4F8) — 3×10, 2×28 kg DB
    - **Why:** Limits ROM to protect shoulders while overloading triceps. Great for 50+ lifters.
 
 7. **Heavy Rope Finisher** [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) — 6×60s on / 15s off (~7.5 min)
