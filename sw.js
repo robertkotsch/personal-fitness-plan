@@ -8,7 +8,7 @@
  * message from app.js (sent when the user accepts the update prompt).
  */
 
-const CACHE_NAME = 'fitness-plan-v1.3';
+const CACHE_NAME = 'fitness-plan-v1.31';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
