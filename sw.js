@@ -1,17 +1,19 @@
 /**
- * Service Worker — Network-first for core assets, cache-first for the rest.
+ * Service Worker — Network-first with offline fallback.
  *
- * CACHE_NAME auto-updates via the build timestamp injected below — no manual
- * version bumps needed. Every time sw.js itself changes the browser detects it,
- * installs the new SW, and the activate handler deletes the old cache.
+ * Strategy: always try the network first so users get fresh content
+ * immediately. On network failure, fall back to cache (offline support).
  *
- * The new SW does NOT auto-activate — it waits for a SKIP_WAITING message from
- * app.js (sent when the user taps the update banner).
+ * The SW auto-activates on install (skipWaiting) so updates are applied
+ * on the very next page load without requiring the user to tap a banner.
+ *
+ * CACHE_NAME is stamped by build.js at deploy/dev-server start time.
+ * It changes on every run so the browser always detects a new SW.
  */
 
-// Timestamp injected at deploy time — changes whenever any file is modified.
-const BUILD_TS    = '1776713748731';
-const CACHE_NAME  = `fitness-plan-${BUILD_TS}`;
+const BUILD_TS   = '1776713970568';
+const CACHE_NAME = `fitness-plan-${BUILD_TS}`;
+
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -26,12 +28,18 @@ const ASSETS_TO_CACHE = [
   './icon-512.png',
 ];
 
-// ── Install: pre-cache assets one-by-one (safe — skips failures) ──────────
+// ── Install: pre-cache assets and activate immediately ───────────────────────
 self.addEventListener('install', event => {
+  // skipWaiting makes the new SW take over as soon as it finishes installing,
+  // without waiting for all tabs to close or for the user to click "Update".
+  self.skipWaiting();
+
   event.waitUntil(
     caches.open(CACHE_NAME).then(async cache => {
       for (const asset of ASSETS_TO_CACHE) {
         try {
+          // cache: 'reload' bypasses the browser HTTP cache so we always
+          // store a fresh copy during install.
           const res = await fetch(asset, { cache: 'reload' });
           if (res && res.status === 200) {
             await cache.put(asset, res);
@@ -42,56 +50,45 @@ self.addEventListener('install', event => {
       }
     })
   );
-  // Do NOT call skipWaiting() here.
-  // The new SW waits until the user accepts the update (see message handler).
 });
 
-// ── Message: user clicked "Update" → activate the waiting SW ──────────────
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
-
-// ── Activate: delete every old cache, then claim all clients ──────────────
+// ── Activate: delete every old cache, claim all open tabs ───────────────────
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
         keys
-          .filter(key => key !== CACHE_NAME)
-          .map(key => {
-            console.log('[SW] Removing old cache:', key);
-            return caches.delete(key);
+          .filter(k => k !== CACHE_NAME)
+          .map(k => {
+            console.log('[SW] Removing old cache:', k);
+            return caches.delete(k);
           })
       )
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// ── Fetch: cache-first; bypass cross-origin requests entirely ────────────
+// ── Fetch: network-first, cache fallback for offline ────────────────────────
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
-  // Let cross-origin requests (YouTube embeds, etc.) go straight to network.
+  // Pass cross-origin requests (YouTube embeds, etc.) straight through.
   if (!event.request.url.startsWith(self.location.origin)) return;
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-
-      return fetch(event.request)
-        .then(response => {
-          if (response && response.status === 200) {
-            return caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, response.clone());
-              return response;
-            });
-          }
-          return response;
-        })
-        .catch(() => { /* network failed, nothing cached — fail silently */ });
-    })
+    fetch(event.request)
+      .then(response => {
+        // Network succeeded — update the cache entry and return fresh response.
+        if (response && response.status === 200) {
+          caches.open(CACHE_NAME).then(cache =>
+            cache.put(event.request, response.clone())
+          );
+        }
+        return response;
+      })
+      .catch(() =>
+        // Network failed — serve from cache so the app works offline.
+        caches.match(event.request)
+      )
   );
 });
