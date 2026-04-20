@@ -353,20 +353,40 @@ document.getElementById('dismissBtn').addEventListener('click', () =>
 // ── Service Worker ─────────────────────────────────────────────────────────
 
 if ('serviceWorker' in navigator) {
-  // updateViaCache: 'none' — browser-level directive to NEVER use HTTP cache
-  // when fetching sw.js for update checks. More reliable than Cache-Control
-  // headers and works regardless of what the dev server sends.
-  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
-    .catch(() => {});
+  window.addEventListener('load', () => {
+    // updateViaCache: 'none' — browser-level directive to NEVER use HTTP cache
+    // when fetching sw.js for update checks.
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
+      .then(reg => {
+        // Force an update check on EVERY page load.
+        // Without this, browsers only poll for a new sw.js once per 24 hours.
+        reg.update().catch(() => {});
 
-  // The SW calls skipWaiting() automatically on install, so a new SW
-  // activates right away and triggers a controllerchange event.
-  // Reload once so the page runs under the fresh SW.
-  let reloading = false;
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!reloading) {
-      reloading = true;
-      window.location.reload();
-    }
+        // Edge case: a new SW may already be waiting (e.g. user opened a second
+        // tab before the first one reloaded). skipWaiting immediately.
+        if (reg.waiting && navigator.serviceWorker.controller) {
+          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+
+        reg.addEventListener('updatefound', () => {
+          const newSW = reg.installing;
+          if (!newSW) return;
+          newSW.addEventListener('statechange', () => {
+            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+              newSW.postMessage({ type: 'SKIP_WAITING' });
+            }
+          });
+        });
+      })
+      .catch(() => {});
+
+    // Reload once the new SW takes control so the page runs fresh JS/CSS.
+    let reloading = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!reloading) {
+        reloading = true;
+        window.location.reload();
+      }
+    });
   });
 }
