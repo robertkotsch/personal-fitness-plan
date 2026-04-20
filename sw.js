@@ -1,25 +1,45 @@
 /**
- * Kill-switch Service Worker.
+ * Service Worker — Cache-first strategy.
  *
- * Replaces the stale Sally Up Trainer SW that was cached on this origin.
- * On activation it silently wipes all caches and unregisters itself.
- * No forced page reload — clearing the cache is sufficient; the next
- * natural navigation will fetch fresh content from the server.
+ * HOW TO FORCE AN UPDATE: bump CACHE_NAME (e.g. v1.1 → v1.2).
+ * The browser detects the changed sw.js byte, installs the new SW,
+ * the activate handler deletes the old cache, clients get fresh files.
  */
 
-self.addEventListener('install', () => {
-  // Activate immediately without waiting for old clients to close.
+const CACHE_NAME = 'fitness-plan-v1.1';
+const URLS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/css/styles.css',
+  '/js/app.js',
+  '/js/data.js',
+  '/js/timer.js',
+];
+
+// Cache all core assets on install; activate immediately.
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(URLS_TO_CACHE))
+  );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', async () => {
-  // 1. Delete every cache on this origin.
-  const cacheNames = await caches.keys();
-  await Promise.all(cacheNames.map(name => caches.delete(name)));
+// Delete every cache that isn't the current version, then claim clients.
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(names =>
+      Promise.all(
+        names
+          .filter(name => name !== CACHE_NAME)
+          .map(name => caches.delete(name))
+      )
+    ).then(() => self.clients.claim())
+  );
+});
 
-  // 2. Take control of all open tabs so they get uncached responses.
-  await self.clients.claim();
-
-  // 3. Self-destruct — no SW should be needed for this project.
-  self.registration.unregister();
+// Cache-first: serve from cache, fall back to network.
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(cached => cached ?? fetch(event.request))
+  );
 });
