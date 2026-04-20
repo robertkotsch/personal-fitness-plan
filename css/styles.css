@@ -442,6 +442,11 @@ html, body {
 .install-banner.show { display: block; }
 .install-banner p { font-size: .8rem; color: var(--text-dim); margin-bottom: 10px; }
 
+/* Update-available banner — same layout, green accent border */
+.update-banner { border-top-color: var(--accent); }
+.update-banner p { color: var(--text); font-weight: 500; }
+
+
 .install-btn {
   padding: 10px 28px;
   border-radius: 8px;

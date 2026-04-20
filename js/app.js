@@ -353,5 +353,43 @@ document.getElementById('dismissBtn').addEventListener('click', () =>
 // ── Service Worker ─────────────────────────────────────────────────────────
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  navigator.serviceWorker.register('sw.js').then(reg => {
+
+    // When a new SW is found, wait for it to finish installing,
+    // then show the update banner so the user can decide when to reload.
+    reg.addEventListener('updatefound', () => {
+      const newSW = reg.installing;
+      if (!newSW) return;
+
+      newSW.addEventListener('statechange', () => {
+        // 'installed' + an active SW = update is waiting, not a first install.
+        if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+          showUpdateBanner(newSW);
+        }
+      });
+    });
+
+  }).catch(() => {});
+
+  // If the SW controlling the page changes (after SKIP_WAITING),
+  // reload once so the user gets the fresh version.
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!reloading) {
+      reloading = true;
+      window.location.reload();
+    }
+  });
+}
+
+function showUpdateBanner(waitingSW) {
+  const banner = document.getElementById('updateBanner');
+  if (!banner) return;
+  banner.classList.add('show');
+
+  document.getElementById('updateBtn').addEventListener('click', () => {
+    banner.classList.remove('show');
+    // Tell the waiting SW to activate immediately.
+    waitingSW.postMessage({ type: 'SKIP_WAITING' });
+  }, { once: true });
 }
