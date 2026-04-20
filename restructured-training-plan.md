@@ -37,8 +37,8 @@
 5. **Ring Dips** [🎥 Video Tutorial](https://youtube.com/watch?v=AdUfoCj3COQ) — 3×8 BW
    - **Why:** Rings let wrists rotate naturally — more shoulder-friendly. Adds stabilizer demand.
 
-6. **Floor Press** [🎥 Video Tutorial](https://www.youtube.com/watch?v=uUGDRwge4F8) — 3×10, 2×28 kg DB
-   - **Why:** Limits ROM to protect shoulders while overloading triceps. Great for 50+ lifters.
+6. **Seated DB Overhead Press** [🎥 Video Tutorial](https://www.youtube.com/watch?v=e4GP9M687zY) — 3×10, 2×18 kg DB
+   - **Why:** Monday had zero vertical push — a real gap for an Upper Push day. Overhead pressing fills that plane, develops lateral and anterior deltoids in ways bench never touches, and builds long-term shoulder health. Seated keeps lumbar stress low at 51.
 
 7. **Heavy Rope Finisher** [🎥 Video Tutorial](https://www.youtube.com/watch?v=y9WO4G9sxtI) — 6×60s on / 15s off (~7.5 min)
    - **Why:** 40s/20s is too easy for 6k+ rope endurance. Lengthened sprint and shortened rest creates real lactic challenge.

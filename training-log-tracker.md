@@ -30,7 +30,7 @@ Track these at the end of each cycle (every 4 weeks). Test during W1 of the next
 |-----------|-----------------|---------|---------|---------|---------|
 | Bench Press (tempo 3-1-X-0) — weight × reps @ RPE | | | | | |
 | Ring Dips — max reps BW | | | | | |
-| Floor Press — DB weight × reps | | | | | |
+| Seated DB Overhead Press — DB weight × reps | | | | | |
 | Plyo Push-up — hand height (cm) | | | | | |
 
 ### Upper Pull

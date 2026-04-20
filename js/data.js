@@ -97,12 +97,12 @@ const DAYS = [
         yt: YT('https://youtube.com/watch?v=AdUfoCj3COQ', 'Rings For Beginners Made Easy (BEST EXERCISES!)', 'FitnessFAQs'),
       },
       {
-        name: 'Floor Press', rx: '3 × 10', n: 1,
-        unit: 'kg', recommended: 28, step: 4,
-        why: 'Limits ROM to protect shoulders, overloads triceps. Great for 50+.',
-        cues: 'Elbows touch ground gently each rep. No bouncing. 2 × 28 kg dumbbells.',
-        prog: '+2.5 kg per DB when all sets hit 10.',
-        yt: YT('https://www.youtube.com/watch?v=uUGDRwge4F8', 'How To: Dumbbell Floor Press', 'ScottHermanFitness'),
+        name: 'Seated DB Overhead Press', rx: '3 × 10', n: 1,
+        unit: 'kg', recommended: 18, step: 2.5,
+        why: 'Monday had zero vertical push. Overhead pressing fills that plane, builds lateral and anterior deltoids in ways bench never touches, and supports long-term shoulder health. Seated keeps lumbar stress low.',
+        cues: 'Back upright against bench. Press directly overhead — not forward. Elbows at ~75° (not flared 90°). Full lockout at top, lower to ear height.',
+        prog: '+2.5 kg per DB when 3×10 feels controlled. Start conservative — overhead is humbling after heavy bench.',
+        yt: YT('https://www.youtube.com/watch?v=e4GP9M687zY', 'Seated Dumbbell Press: Gym Shorts (How To)', 'Barbell Logic'),
       },
       { name: 'Finisher + Conditioning (~26 min)', isHeader: true },
       {
