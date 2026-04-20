@@ -19,8 +19,9 @@ app.use(
     // Disable express' built-in ETag for the custom header logic below.
     etag: true,
     setHeaders(res, filePath) {
-      if (filePath.endsWith('index.html')) {
-        // Always revalidate the entry point so deploys are picked up immediately.
+      if (filePath.endsWith('index.html') || filePath.endsWith('sw.js')) {
+        // Always revalidate: index.html so deploys are picked up immediately;
+        // sw.js because the browser MUST be able to detect SW updates (spec requirement).
         res.setHeader('Cache-Control', 'no-cache, must-revalidate');
       } else {
         // Long-lived cache for versioned assets; they never change once deployed.

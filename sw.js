@@ -6,7 +6,7 @@
  * the activate handler deletes the old cache, clients get fresh files.
  */
 
-const CACHE_NAME = 'fitness-plan-v1.1';
+const CACHE_NAME = 'fitness-plan-v1.2';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
