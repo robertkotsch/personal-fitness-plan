@@ -1,14 +1,17 @@
 /**
- * Service Worker — Cache-first strategy.
+ * Service Worker — Network-first for core assets, cache-first for the rest.
  *
- * HOW TO FORCE AN UPDATE: bump CACHE_NAME (e.g. v1.2 → v1.3).
- * The browser detects the changed sw.js, installs the new SW.
- * The activate handler deletes the old cache.
- * The new SW does NOT auto-activate — it waits for a SKIP_WAITING
- * message from app.js (sent when the user accepts the update prompt).
+ * CACHE_NAME auto-updates via the build timestamp injected below — no manual
+ * version bumps needed. Every time sw.js itself changes the browser detects it,
+ * installs the new SW, and the activate handler deletes the old cache.
+ *
+ * The new SW does NOT auto-activate — it waits for a SKIP_WAITING message from
+ * app.js (sent when the user taps the update banner).
  */
 
-const CACHE_NAME = 'fitness-plan-v1.31';
+// Timestamp injected at deploy time — changes whenever any file is modified.
+const BUILD_TS    = '1776713748731';
+const CACHE_NAME  = `fitness-plan-${BUILD_TS}`;
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

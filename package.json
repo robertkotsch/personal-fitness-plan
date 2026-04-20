@@ -4,8 +4,12 @@
   "description": "Rob's personal fitness training plan app",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "npx serve ."
+    "prebuild": "node build.js",
+    "build": "node build.js",
+    "predev": "node build.js",
+    "dev": "npx serve .",
+    "prestart": "node build.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.19.2"
