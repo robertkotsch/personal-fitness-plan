@@ -68,7 +68,7 @@ self.addEventListener('activate', event => {
   );
 });
 
-// ── Fetch: network-first, cache fallback for offline ────────────────────────
+// ── Fetch: cache-first, network fallback ────────────────────────
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
@@ -76,19 +76,24 @@ self.addEventListener('fetch', event => {
   if (!event.request.url.startsWith(self.location.origin)) return;
 
   event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        // Network succeeded — update the cache entry and return fresh response.
-        if (response && response.status === 200) {
-          caches.open(CACHE_NAME).then(cache =>
-            cache.put(event.request, response.clone())
-          );
+    caches.match(event.request)
+      .then(cachedResponse => {
+        // Return cached response immediately if found
+        if (cachedResponse) {
+          return cachedResponse;
         }
-        return response;
+
+        // Otherwise, fetch from network (e.g. for assets not in ASSETS_TO_CACHE)
+        return fetch(event.request).then(networkResponse => {
+          if (networkResponse && networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then(cache =>
+              cache.put(event.request, networkResponse.clone())
+            );
+          }
+          return networkResponse;
+        }).catch(() => {
+          // Ignore network errors or show offline fallback
+        });
       })
-      .catch(() =>
-        // Network failed — serve from cache so the app works offline.
-        caches.match(event.request)
-      )
   );
 });
